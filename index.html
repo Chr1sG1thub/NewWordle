@@ -68,7 +68,7 @@
      // let chart; // Holds Chart.js instance
 
       async function fetchDataAndUpdateUI() {
-        const response = await fetch('https://sheetdb.io/api/v1/119pijr0mmgrr');
+        const response = await fetch('https://sheetdb.io/api/v1/fxv69jnm5s4f6');
         const data = await response.json();
 
         tableBody.innerHTML = '';
@@ -114,7 +114,7 @@
         const julia = entryForm.julia.value;
         const nick = entryForm.nick.value;
 
-        await fetch('https://sheetdb.io/api/v1/119pijr0mmgrr', {
+        await fetch('https://sheetdb.io/api/v1/fxv69jnm5s4f6', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify([{ theDate, theWord, chris, julia, nick }])
