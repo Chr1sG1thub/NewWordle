@@ -12,9 +12,9 @@
     </style>
   </head>
   <body>
-    <div id="everything" style="display:none;">
+    <div id="everything">
       <table style="font-size: 30px; padding: 6px">
-        <thead><tr><th>Date</th></th><th>Word</th><th>Change</th><th>Julia</th><th>Nick</th></tr></thead>
+        <thead><tr><th>Date</th></th><th>Word</th><th>Chris</th><th>Julia</th><th>Nick</th></tr></thead>
         <tbody id="table-body"></tbody>
     </table>
 
@@ -26,7 +26,7 @@
       <input type="text" id="the-date" style="font-size: 30px; width: 180px" name="thedate" required>
 
       <label for="theword">Word:</label>
-      <input type="text" id="total" style="font-size: 30px; width: 150px;" name="theword" required>
+      <input type="text" id="the-word" style="font-size: 30px; width: 150px;" name="theword" required>
 
       <label for="chris">Chris:</label>
       <input type="text" id="chris" style="font-size: 30px; width: 150px;" name="chris" required>
@@ -39,11 +39,11 @@
 
     </form>
 
-    <canvas id="line-chart"></canvas>
+   <!-- <canvas id="line-chart"></canvas> -->
 
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <!--  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 
     <script>
 
@@ -62,10 +62,10 @@
 
       const entryForm = document.getElementById('entry-form');
       const tableBody = document.getElementById('table-body');
-      const lineChartCtx = document.getElementById('line-chart').getContext('2d');
+      //const lineChartCtx = document.getElementById('line-chart').getContext('2d');
   
-      let prevTotal = 0;
-      let chart; // Holds Chart.js instance
+      //let prevTotal = 0;
+     // let chart; // Holds Chart.js instance
 
       async function fetchDataAndUpdateUI() {
         const response = await fetch('https://sheetdb.io/api/v1/119pijr0mmgrr');
