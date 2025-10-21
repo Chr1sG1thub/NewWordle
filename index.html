@@ -108,16 +108,16 @@
 
       entryForm.onsubmit = async (e) => {
         e.preventDefault();
-        const theDate = entryForm.thedate.value;
-        const theWord = entryForm.theword.value;
-        const chris = entryForm.chris.value;
-        const julia = entryForm.julia.value;
-        const nick = entryForm.nick.value;
+        const TheDate = entryForm.thedate.value;
+        const TheWord = entryForm.theword.value;
+        const Chris = entryForm.chris.value;
+        const Julia = entryForm.julia.value;
+        const Nick = entryForm.nick.value;
 
         await fetch('https://sheetdb.io/api/v1/fxv69jnm5s4f6', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify([{ theDate, theWord, chris, julia, nick }])
+          body: JSON.stringify([{ TheDate, TheWord, Chris, Julia, Nick }])
         }); //await fetch
 
         entryForm.reset();  // Clear form inputs
