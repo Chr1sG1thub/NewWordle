@@ -209,7 +209,7 @@ const lossesData = {
      } //if (lossesChart)
         
 const labels = ["Chris", "Julia", "Nick"];
-const data = {
+const guessesData = {
   labels: labels,
   datasets: [{
     label: 'Guesses',
@@ -235,7 +235,7 @@ const data = {
        } else {
           guessesChart = new Chart(lossesDonutChartCtx, {
             type: 'bar',
-            data: data,
+            data: guessesData,
        }); //new Chart
                   
      } //if (lossesChart)
