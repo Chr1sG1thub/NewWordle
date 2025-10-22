@@ -190,6 +190,7 @@ const lossesData = {
 }; //lossesData
         
         if (winChart) {
+          winChart.data.datasets[0].data[2] = 100;
          winChart.update();
        } else {
           winChart = new Chart(winDonutChartCtx, {
@@ -259,7 +260,7 @@ const guessesData = {
     data: [chrisGoes[6], juliaGoes[6], nickGoes[6]],
     backgroundColor: "red"
   }]
-};
+}; //const guessesData
 
  const guessesConfig = {
 //      type: "bar",
@@ -281,7 +282,7 @@ const guessesData = {
           }
         }
       }
-    };
+    }; //const guessesConfig
 
 
       if (guessesChart) {
