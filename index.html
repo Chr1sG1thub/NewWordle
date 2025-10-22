@@ -190,8 +190,11 @@ const lossesData = {
 }; //lossesData
         
         if (winChart) {
-          winChart.data.datasets[0].data[2] = 100;
-         winChart.update();
+          winChart.data.datasets[0].data[0] = chrisWins;
+          winChart.data.datasets[0].data[1] = juliaWins;
+          winChart.data.datasets[0].data[2] = nickWins;
+          winChart.data.datasets[0].data[3] = noOneWins;
+          winChart.update();
        } else {
           winChart = new Chart(winDonutChartCtx, {
             type: 'doughnut',
