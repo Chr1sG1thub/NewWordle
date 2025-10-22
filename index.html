@@ -41,7 +41,7 @@
 
    <canvas id="wins-donut-chart" width="600" height="400"></canvas>
    <canvas id="losses-donut-chart" width="600" height="400"></canvas>
-   <canvas id="guess-distro-chart" width="600" height="400"></canvas>
+   <canvas id="guesses-bar-chart" width="600" height="400"></canvas>
 
     </div>
     
@@ -66,10 +66,12 @@
       const tableBody = document.getElementById('table-body');
       const winDonutChartCtx = document.getElementById('wins-donut-chart').getContext('2d');
       const lossesDonutChartCtx = document.getElementById('losses-donut-chart').getContext('2d');
+      const guessesBarChartCtx = document.getElementById('guesses-bar-chart').getContext('2d');
   
       //let prevTotal = 0;
       let winChart; // Holds Chart.js instance
       let lossesChart; // Holds Chart.js instance
+      let guessesChart; // Holds Chart.js instance
 
       async function fetchDataAndUpdateUI() {
         const response = await fetch('https://sheetdb.io/api/v1/fxv69jnm5s4f6');
@@ -137,7 +139,7 @@
           indx = indx + 1;
         }); //data.forEach
         
-console.log(chrisGoes, juliaGoes, nickGoes);
+//console.log(chrisGoes, juliaGoes, nickGoes);
         
     //    console.log(chrisWins, juliaWins, nickWins, noOneWins, chrisLosses, juliaLosses, nickLosses, noOneLosses);
   // Prepare chart data
@@ -206,7 +208,38 @@ const lossesData = {
                   
      } //if (lossesChart)
         
-document.getElementById("everything").style.display = 'block';
+const labels = ["Chris", "Julia", "Nick"];
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'Guesses',
+    data: [chrisGoes[3], juliaGoes[3], nickGoes[3]],
+    backgroundColor: [
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(153, 102, 255, 0.2)',
+      'rgba(201, 203, 207, 0.2)'
+    ],
+    borderColor: [
+      'rgb(54, 162, 235)',
+      'rgb(153, 102, 255)',
+      'rgb(201, 203, 207)'
+    ],
+    borderWidth: 1
+  }]
+};
+        
+      if (guessesChart) {
+    //      chart.data.labels = atEndOf;
+    //      chart.data.datasets[0].data = total;
+    //      chart.update();
+       } else {
+          guessesChart = new Chart(lossesDonutChartCtx, {
+            type: 'bar',
+            data: data,
+       }); //new Chart
+                  
+     } //if (lossesChart)
+        document.getElementById("everything").style.display = 'block';
 
       } //async function fetchDataAndUpdateUI
       
