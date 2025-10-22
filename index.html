@@ -199,6 +199,18 @@ const lossesData = {
           winChart = new Chart(winDonutChartCtx, {
             type: 'doughnut',
             data: winData,
+            options: {
+  plugins: {
+    legend: {
+      labels: {
+        font: {
+          size: 30 // Increase this number to make the legend font bigger
+        }
+      }
+    }
+  }
+}
+
        }); //new Chart
      } //if (winChart)
 
