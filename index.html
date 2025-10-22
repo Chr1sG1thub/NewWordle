@@ -23,17 +23,17 @@
     <form id="entry-form" style="font-size: 30px;">
  
       <label for="the-date">Date:</label>
-      <input type="text" id="the-date" maxlength="10" style="font-size: 30px; width: 170px" name="thedate" required>
+      <input type="text" id="the-date" maxlength="10" style="font-size: 30px; width: 170px" name="thedate" requitomato>
 
       <label for="the-word">Word:</label>
-      <input type="text" id="the-word" maxlength="5" style="font-size: 30px; width: 100px; text-transform:uppercase" name="theword" required>
+      <input type="text" id="the-word" maxlength="5" style="font-size: 30px; width: 100px; text-transform:uppercase" name="theword" requitomato>
 
       <label for="xchris">Chris:</label>
-      <input type="number" maxlength="1" id="xchris" style="font-size: 30px; width: 60px;" name="chris" required>
+      <input type="number" maxlength="1" id="xchris" style="font-size: 30px; width: 60px;" name="chris" requitomato>
       <label for="xjulia">Julia:</label>
-      <input type="number" maxlength="1" id="xjulia" style="font-size: 30px; width: 60px;" name="julia" required>
+      <input type="number" maxlength="1" id="xjulia" style="font-size: 30px; width: 60px;" name="julia" requitomato>
       <label for="xnick">Nick:</label>
-      <input type="number" maxlength="1" id="xnick" style="font-size: 30px; width: 60px;" name="nick" required>
+      <input type="number" maxlength="1" id="xnick" style="font-size: 30px; width: 60px;" name="nick" requitomato>
 
      <button type="submit" style="height: 40px">Submit</button>
 
@@ -107,20 +107,20 @@
           }
 
           if (myRow.Chris > myRow.Julia && myRow.Chris > myRow.Nick) {
-            chrisBG = "red";
+            chrisBG = "tomato";
             chrisLosses = chrisLosses + 1;
           } else if (myRow.Julia > myRow.Chris && myRow.Julia > myRow.Nick) {
-            juliaBG = "red";
+            juliaBG = "tomato";
             juliaLosses = juliaLosses + 1;
           } else if (myRow.Nick > myRow.Chris && myRow.Nick > myRow.Julia) {
-            nickBG = "red";
+            nickBG = "tomato";
             nickLosses = nickLosses + 1;
           } else {
             noOneLosses = noOneLosses + 1;
           }
 
           if (indx >= (data.length - 10)) {
-            tableBody.innerHTML += `<tr><td align='right'>${myRow["TheDate"]}</td><td align='center'>${myRow["TheWord"]}</td><td align='center' style='background-color: ${chrisBG}'>${myRow["Chris"]}</td><td align='centre' style='background-color: ${juliaBG}'>${myRow["Julia"]}</td><td align='center' style='background-color: ${nickBG}'>${myRow["Nick"]}</td></tr>`;
+            tableBody.innerHTML += `<tr><td align='right'>${myRow["TheDate"]}</td><td align='center'>${myRow["TheWord"]}</td><td align='center' style='background-color: ${chrisBG}'>${myRow["Chris"]}</td><td align='center' style='background-color: ${juliaBG}'>${myRow["Julia"]}</td><td align='center' style='background-color: ${nickBG}'>${myRow["Nick"]}</td></tr>`;
           }
           indx = indx + 1;
         }); //data.forEach
