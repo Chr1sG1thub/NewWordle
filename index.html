@@ -39,11 +39,11 @@
 
     </form>
 
-   <!-- <canvas id="line-chart"></canvas> -->
+   <canvas id="wins-donut-chart"></canvas>
 
     </div>
     
-   <!--  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
 
@@ -62,10 +62,10 @@
 
       const entryForm = document.getElementById('entry-form');
       const tableBody = document.getElementById('table-body');
-      //const lineChartCtx = document.getElementById('line-chart').getContext('2d');
+      const winsDonutChartCtx = document.getElementById('wins-donut-chart').getContext('2d');
   
       //let prevTotal = 0;
-     // let chart; // Holds Chart.js instance
+      let winChart; // Holds Chart.js instance
 
       async function fetchDataAndUpdateUI() {
         const response = await fetch('https://sheetdb.io/api/v1/fxv69jnm5s4f6');
@@ -125,33 +125,44 @@
           indx = indx + 1;
         }); //data.forEach
 
-        console.log(chrisWins, juliaWins, nickWins, noOneWins, chrisLosses, juliaLosses, nickLosses, noOneLosses);
+    //    console.log(chrisWins, juliaWins, nickWins, noOneWins, chrisLosses, juliaLosses, nickLosses, noOneLosses);
   // Prepare chart data
   //      const atEndOf = data.map(row => row["AtEndOf"]);
    //     const total = data.map(row => row["Total"]);
 
-   //     if (chart) {
+const winData = {
+  labels: [
+    'Chris',
+    'Julia',
+    'Nick',
+    'Draw'
+  ],
+  datasets: [{
+    label: 'Wins',
+    data: [chrisWins, juliaWins, NickWins, noOneWins],
+    backgroundColor: [
+      'blue',
+      'pink',
+      'green',
+      'grey'
+    ],
+    hoverOffset: 4
+  }]
+}; //winData
+        if (winChart) {
     //      chart.data.labels = atEndOf;
     //      chart.data.datasets[0].data = total;
     //      chart.update();
-     //   } else {
-     //     chart = new Chart(lineChartCtx, {
-      //      type: 'line',
-       //     data: {
-    //          labels: atEndOf,
-    //          datasets: [{
-     //           label: 'Total',
-    //            data: total,
-     //           borderColor: 'green',
-     //           fill: false
-    //          }] //datasets
-     //       } //data
-     //     }); //new Chart
-     //   } //if (chart)
-     //   document.getElementById("everything").style.display = 'block';
+       } else {
+          winChart = new Chart(winDonutChartCtx, {
+            type: 'doughnut',
+            data: winData,
+       }); //new Chart
+     } //if (chart)
+        document.getElementById("everything").style.display = 'block';
 
       } //async function fetchDataAndUpdateUI
-
+      
       entryForm.onsubmit = async (e) => {
         e.preventDefault();
         const TheDate = entryForm.thedate.value;
