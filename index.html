@@ -208,29 +208,34 @@ const lossesData = {
                   
      } //if (lossesChart)
         
-const labels = ["1", "2", "3", "4", "5", "6", "7"];
 const guessesData = {
-  labels: labels,
+  labels: ["Chris", "Julia", "Nick"],
   datasets: [{
-    label: 'Chris',
-    data: [chrisGoes],
+    label: '1',
+    type: 'bar',
+    stack: 'combined'
+    data: [chrisGoes[0], juliaGoes[0], nickGoes[0]],
     backgroundColor: "blue"
   },
     {
-    label: 'Julia',
-    data: [juliaGoes],
-    backgroundColor: "pink"
+    label: '2',
+    type: 'bar',
+    stack: 'combined'
+    data: [chrisGoes[1], juliaGoes[1], nickGoes[1]],
+    backgroundColor: "green"
   },
     {
-    label: 'Nick',
-    data: [nickGoes],
-    backgroundColor: "green"
+    label: '3',
+    type: 'bar',
+    stack: 'combined'
+    data: [chrisGoes[2], juliaGoes[2], nickGoes[2]],
+    backgroundColor: "purple"
   }]
 };
 
-            const guessesConfig = {
-      type: "bar",
-      data: data,
+ const guessesConfig = {
+//      type: "bar",
+      data: guessesData,
       options: {
         plugins: {
           title: {
@@ -244,7 +249,7 @@ const guessesData = {
             stacked: true
           },
            y: {
-            stacked: false
+            stacked: true
           }
         }
       }
