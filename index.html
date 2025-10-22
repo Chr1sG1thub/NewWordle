@@ -64,6 +64,7 @@
 
       const entryForm = document.getElementById('entry-form');
       const tableBody = document.getElementById('table-body');
+      
       const winDonutChartCtx = document.getElementById('wins-donut-chart').getContext('2d');
       const lossesDonutChartCtx = document.getElementById('losses-donut-chart').getContext('2d');
       const guessesBarChartCtx = document.getElementById('guesses-bar-chart').getContext('2d');
@@ -79,10 +80,12 @@
 
         tableBody.innerHTML = '';
         let indx = 0;
+        
         let chrisWins = 0;
         let juliaWins = 0;
         let nickWins = 0;
         let noOneWins = 0;
+        
         let chrisLosses = 0;
         let juliaLosses = 0;
         let nickLosses = 0;
@@ -300,7 +303,7 @@ const guessesData = {
       entryForm.onsubmit = async (e) => {
         e.preventDefault();
         const TheDate = entryForm.thedate.value;
-        const TheWord = entryForm.theword.value;
+        const TheWord = entryForm.theword.value.toUpperCase();
         const Chris = entryForm.chris.value;
         const Julia = entryForm.julia.value;
         const Nick = entryForm.nick.value;
