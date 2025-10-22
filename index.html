@@ -40,6 +40,7 @@
     </form>
 
    <canvas id="wins-donut-chart"></canvas>
+   <canvas id="losses-donut-chart"></canvas>
 
     </div>
     
@@ -63,6 +64,7 @@
       const entryForm = document.getElementById('entry-form');
       const tableBody = document.getElementById('table-body');
       const winDonutChartCtx = document.getElementById('wins-donut-chart').getContext('2d');
+      const lossesDonutChartCtx = document.getElementById('losses-donut-chart').getContext('2d');
   
       //let prevTotal = 0;
       let winChart; // Holds Chart.js instance
@@ -149,6 +151,26 @@ const winData = {
     hoverOffset: 4
   }]
 }; //winData
+const lossesData = {
+  labels: [
+    'Chris',
+    'Julia',
+    'Nick',
+    'Draw'
+  ],
+  datasets: [{
+    label: 'Losses',
+    data: [chrisLosses, juliaLosses, nickLosses, noOneLosses],
+    backgroundColor: [
+      'blue',
+      'pink',
+      'green',
+      'grey'
+    ],
+    hoverOffset: 4
+  }]
+}; //lossesData
+        
         if (winChart) {
     //      chart.data.labels = atEndOf;
     //      chart.data.datasets[0].data = total;
@@ -158,8 +180,21 @@ const winData = {
             type: 'doughnut',
             data: winData,
        }); //new Chart
-     } //if (chart)
-        document.getElementById("everything").style.display = 'block';
+     } //if (winChart)
+
+      if (lossesChart) {
+    //      chart.data.labels = atEndOf;
+    //      chart.data.datasets[0].data = total;
+    //      chart.update();
+       } else {
+          lossesChart = new Chart(lossesDonutChartCtx, {
+            type: 'doughnut',
+            data: lossesData,
+       }); //new Chart
+                  
+     } //if (lossesChart)
+        
+document.getElementById("everything").style.display = 'block';
 
       } //async function fetchDataAndUpdateUI
       
