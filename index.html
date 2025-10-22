@@ -203,6 +203,10 @@ const lossesData = {
      } //if (winChart)
 
       if (lossesChart) {
+          lossesChart.data.datasets[0].data[0] = chrisLosses;
+          lossesChart.data.datasets[0].data[1] = juliaLosses;
+          lossesChart.data.datasets[0].data[2] = nickLosses;
+          lossesChart.data.datasets[0].data[3] = noOneLosses;
           lossesChart.update();
        } else {
           lossesChart = new Chart(lossesDonutChartCtx, {
@@ -261,7 +265,7 @@ const guessesData = {
     type: 'bar',
     stack: 'combined',
     data: [chrisGoes[6], juliaGoes[6], nickGoes[6]],
-    backgroundColor: "red"
+    backgroundColor: "salmon"
   }]
 }; //const guessesData
 
@@ -289,7 +293,28 @@ const guessesData = {
 
 
       if (guessesChart) {
-           guessesChart.update();
+          guessesChart.data.datasets[0].data[0] = chrisGoes[0];
+          guessesChart.data.datasets[0].data[1] = juliaGoes[0];
+          guessesChart.data.datasets[0].data[2] = nickGoes[0];
+          guessesChart.data.datasets[1].data[0] = chrisGoes[1];
+          guessesChart.data.datasets[1].data[1] = juliaGoes[1];
+          guessesChart.data.datasets[1].data[2] = nickGoes[1];
+          guessesChart.data.datasets[2].data[0] = chrisGoes[2];
+          guessesChart.data.datasets[2].data[1] = juliaGoes[2];
+          guessesChart.data.datasets[2].data[2] = nickGoes[2];
+          guessesChart.data.datasets[3].data[0] = chrisGoes[3];
+          guessesChart.data.datasets[3].data[1] = juliaGoes[3];
+          guessesChart.data.datasets[3].data[2] = nickGoes[3];
+          guessesChart.data.datasets[4].data[0] = chrisGoes[4];
+          guessesChart.data.datasets[4].data[1] = juliaGoes[4];
+          guessesChart.data.datasets[4].data[2] = nickGoes[4];
+          guessesChart.data.datasets[5].data[0] = chrisGoes[5];
+          guessesChart.data.datasets[5].data[1] = juliaGoes[5];
+          guessesChart.data.datasets[5].data[2] = nickGoes[5];
+          guessesChart.data.datasets[6].data[0] = chrisGoes[6];
+          guessesChart.data.datasets[6].data[1] = juliaGoes[6];
+          guessesChart.data.datasets[6].data[2] = nickGoes[6];
+          guessesChart.update();
        } else {
           guessesChart = new Chart(guessesBarChartCtx, guessesConfig); //new Chart
                   
