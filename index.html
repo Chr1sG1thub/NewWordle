@@ -235,6 +235,27 @@ const lossesData = {
           lossesChart = new Chart(lossesDonutChartCtx, {
             type: 'doughnut',
             data: lossesData,
+            options: {
+  plugins: {
+    legend: {
+      labels: {
+        font: {
+          size: 30 // Increase this number to make the legend font bigger
+        }
+      }
+    },
+    tooltip: {
+      titleFont: {
+        size: 30 // font size for tooltip title
+      },
+      bodyFont: {
+        size: 30 // font size for tooltip body text
+      },
+      footerFont: {
+        size: 30 // font size for tooltip footer text
+      }
+  }
+    }
        }); //new Chart
                   
      } //if (lossesChart)
