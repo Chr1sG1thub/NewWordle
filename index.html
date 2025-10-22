@@ -168,6 +168,7 @@ const winData = {
     hoverOffset: 4
   }]
 }; //winData
+
 const lossesData = {
   labels: [
     'Chris',
@@ -189,9 +190,7 @@ const lossesData = {
 }; //lossesData
         
         if (winChart) {
-    //      chart.data.labels = atEndOf;
-    //      chart.data.datasets[0].data = total;
-    //      chart.update();
+         winChart.update();
        } else {
           winChart = new Chart(winDonutChartCtx, {
             type: 'doughnut',
@@ -200,9 +199,7 @@ const lossesData = {
      } //if (winChart)
 
       if (lossesChart) {
-    //      chart.data.labels = atEndOf;
-    //      chart.data.datasets[0].data = total;
-    //      chart.update();
+          lossesChart.update();
        } else {
           lossesChart = new Chart(lossesDonutChartCtx, {
             type: 'doughnut',
@@ -288,9 +285,7 @@ const guessesData = {
 
 
       if (guessesChart) {
-    //      chart.data.labels = atEndOf;
-    //      chart.data.datasets[0].data = total;
-    //      chart.update();
+           guessesChart.update();
        } else {
           guessesChart = new Chart(guessesBarChartCtx, guessesConfig); //new Chart
                   
