@@ -89,13 +89,21 @@
         let chrisBG;
         let juliaBG;
         let nickBG;
+
+        let chrisGoes[] = {0,0,0,0,0,0,0};
+        let juliaGoes[] = {0,0,0,0,0,0,0};
+        let nickGoes[] = {0,0,0,0,0,0,0};
         
         data.forEach(myRow => {
+
+          chrisGoes[myRow.Chris]++;
+          juliaGoes[myRow.Chris]++;
+          nickGoes[myRow.Chris]++;
+          
 
           chrisBG = "white";
           juliaBG = "white";
           nickBG = "white";
-          
           
           if (myRow.Chris < myRow.Julia && myRow.Chris < myRow.Nick) {
             chrisBG = "lightgreen";
@@ -128,7 +136,9 @@
           }
           indx = indx + 1;
         }); //data.forEach
-
+        
+console.log(chrisGoes, juliaGoes, nickGoes);
+        
     //    console.log(chrisWins, juliaWins, nickWins, noOneWins, chrisLosses, juliaLosses, nickLosses, noOneLosses);
   // Prepare chart data
   //      const atEndOf = data.map(row => row["AtEndOf"]);
