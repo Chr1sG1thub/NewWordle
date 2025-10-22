@@ -82,30 +82,45 @@
         let nickLosses = 0;
         let noOneLosses = 0;
         
+        let chrisBG;
+        let juliaBG;
+        let nickBG;
+        
         data.forEach(myRow => {
+
+          chrisBG = "";
+          juliaBG = "";
+          nickBG = "";
+          
           
           if (myRow.Chris < myRow.Julia && myRow.Chris < myRow.Nick) {
+            chrisBG = " style=background-color: lightgreen;";
             chrisWins = chrisWins + 1;
           } else if (myRow.Julia < myRow.Chris && myRow.Julia < myRow.Nick) {
+            juliaBG = " style=background-color: lightgreen;";
             juliaWins = juliaWins + 1;
           } else if (myRow.Nick < myRow.Chris && myRow.Nick < myRow.Julia) {
+            nickBG = "style=background-color: lightgreen;";
             nickWins = nickWins + 1;
           } else {
             noOneWins = noOneWins + 1;
           }
 
           if (myRow.Chris > myRow.Julia && myRow.Chris > myRow.Nick) {
+            chrisBG = " style=background-color: red;";
             chrisLosses = chrisLosses + 1;
           } else if (myRow.Julia > myRow.Chris && myRow.Julia > myRow.Nick) {
+            juliaBG = " style=background-color: red;";
             juliaLosses = juliaLosses + 1;
           } else if (myRow.Nick > myRow.Chris && myRow.Nick > myRow.Julia) {
+            nickBG = " style=background-color: red;";
             nickLosses = nickLosses + 1;
           } else {
             noOneLosses = noOneLosses + 1;
           }
 
           if (indx >= (data.length - 10)) {
-            tableBody.innerHTML += `<tr><td align='right'>${myRow["TheDate"]}</td><td align='right'>${myRow["TheWord"]}</td><td align='right'>${myRow["Chris"]}</td><td align='right'>${myRow["Julia"]}</td><td align='right'>${myRow["Nick"]}</td></tr>`;
+            tableBody.innerHTML += `<tr><td align='right'>${myRow["TheDate"]}</td><td align='center'>${myRow["TheWord"]}</td><td align='center'${chrisBG}>${myRow["Chris"]}</td><td align='centre'${juliaBG}>${myRow["Julia"]}</td><td align='center'${nickBG}>${myRow["Nick"]}</td></tr>`;
           }
           indx = indx + 1;
         }); //data.forEach
