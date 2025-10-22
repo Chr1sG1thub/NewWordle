@@ -94,26 +94,26 @@
           
           
           if (myRow.Chris < myRow.Julia && myRow.Chris < myRow.Nick) {
-            chrisBG = " style=background-color: lightgreen;";
+            chrisBG = " 'style=background-color: lightgreen;'";
             chrisWins = chrisWins + 1;
           } else if (myRow.Julia < myRow.Chris && myRow.Julia < myRow.Nick) {
-            juliaBG = " style=background-color: lightgreen;";
+            juliaBG = " 'style=background-color: lightgreen;'";
             juliaWins = juliaWins + 1;
           } else if (myRow.Nick < myRow.Chris && myRow.Nick < myRow.Julia) {
-            nickBG = "style=background-color: lightgreen;";
+            nickBG = " 'style=background-color: lightgreen;'";
             nickWins = nickWins + 1;
           } else {
             noOneWins = noOneWins + 1;
           }
 
           if (myRow.Chris > myRow.Julia && myRow.Chris > myRow.Nick) {
-            chrisBG = " style=background-color: red;";
+            chrisBG = "' style=background-color: red;'";
             chrisLosses = chrisLosses + 1;
           } else if (myRow.Julia > myRow.Chris && myRow.Julia > myRow.Nick) {
-            juliaBG = " style=background-color: red;";
+            juliaBG = "' style=background-color: red;'";
             juliaLosses = juliaLosses + 1;
           } else if (myRow.Nick > myRow.Chris && myRow.Nick > myRow.Julia) {
-            nickBG = " style=background-color: red;";
+            nickBG = "' style=background-color: red;'";
             nickLosses = nickLosses + 1;
           } else {
             noOneLosses = noOneLosses + 1;
