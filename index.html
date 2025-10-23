@@ -208,7 +208,11 @@
                   } //font
                 } //labels
               }, //legend
-              tooltip: {
+              title: {
+                display: true,
+                text: "Outright Wins"
+              }, //title
+               tooltip: {
                 titleFont: {
                   size: 30
               }, //titleFont
@@ -221,42 +225,46 @@
               } //tooltip
             } //plugins
           } //options
-       }); //new Chart
-     } //if (winChart)
+        }); //new Chart
+      } //if (winChart)
 
-     if (lossesChart) {
-       lossesChart.data.datasets[0].data[0] = chrisLosses;
-       lossesChart.data.datasets[0].data[1] = juliaLosses;
-       lossesChart.data.datasets[0].data[2] = nickLosses;
-       lossesChart.data.datasets[0].data[3] = noOneLosses;
-       lossesChart.update();
-     } else {
-       lossesChart = new Chart(lossesDonutChartCtx, {
-         type: 'doughnut',
-         data: lossesData,
-         options: {
-           plugins: {
-             legend: {
-               labels: {
-                 font: {
-                   size: 30
-                 } //font
-               } //labels
-             }, //legend
-             tooltip: {
-                 titleFont: {
-                   size: 30
-                 }, //titleFont
-                 bodyFont: {
-                   size: 30
-                 }, //bodyFont
-                 footerFont: {
-                   size: 30 // font size for tooltip footer text
-                 } //footerfont
-               } //tooltip
-             } //plugins
-           } //options
-         }); //new Chart
+      if (lossesChart) {
+        lossesChart.data.datasets[0].data[0] = chrisLosses;
+        lossesChart.data.datasets[0].data[1] = juliaLosses;
+        lossesChart.data.datasets[0].data[2] = nickLosses;
+        lossesChart.data.datasets[0].data[3] = noOneLosses;
+        lossesChart.update();
+      } else {
+        lossesChart = new Chart(lossesDonutChartCtx, {
+          type: 'doughnut',
+          data: lossesData,
+          options: {
+            plugins: {
+              legend: {
+                labels: {
+                  font: {
+                    size: 30
+                  } //font
+                } //labels
+              }, //legend
+              title: {
+              display: true,
+              text: "Outright Losses"
+              }, //title
+              tooltip: {
+                titleFont: {
+                  size: 30
+                }, //titleFont
+                bodyFont: {
+                  size: 30
+                }, //bodyFont
+                footerFont: {
+                  size: 30 // font size for tooltip footer text
+                } //footerfont
+              } //tooltip
+            } //plugins
+          } //options
+        }); //new Chart
 
       } //if (lossesChart)
         
@@ -320,78 +328,84 @@
           plugins: {
             title: {
               display: true,
-              text: "Guesses"
-            } //title
-          }, //plugins
-        responsive: true,
-        scales: {
-          x: {
-            stacked: true
-          },
-           y: {
-            stacked: true
-          }
-        } //scales
-      } //options
-    }; //const guessesConfig
+              text: "Guess Distribution"
+            }, //title
+            legend: {
+              labels: {
+                font: {
+                  size: 30
+                } //font
+              } //labels
+            }, //legend
+         }, //plugins
+          responsive: true,
+          scales: {
+            x: {
+              stacked: true
+            },
+            y: {
+              stacked: true
+            }
+          } //scales
+        } //options
+      }; //const guessesConfig
 
 
-    if (guessesChart) {
-      guessesChart.data.datasets[0].data[0] = chrisGoes[0];
-      guessesChart.data.datasets[0].data[1] = juliaGoes[0];
-      guessesChart.data.datasets[0].data[2] = nickGoes[0];
-      guessesChart.data.datasets[1].data[0] = chrisGoes[1];
-      guessesChart.data.datasets[1].data[1] = juliaGoes[1];
-      guessesChart.data.datasets[1].data[2] = nickGoes[1];
-      guessesChart.data.datasets[2].data[0] = chrisGoes[2];
-      guessesChart.data.datasets[2].data[1] = juliaGoes[2];
-      guessesChart.data.datasets[2].data[2] = nickGoes[2];
-      guessesChart.data.datasets[3].data[0] = chrisGoes[3];
-      guessesChart.data.datasets[3].data[1] = juliaGoes[3];
-      guessesChart.data.datasets[3].data[2] = nickGoes[3];
-      guessesChart.data.datasets[4].data[0] = chrisGoes[4];
-      guessesChart.data.datasets[4].data[1] = juliaGoes[4];
-      guessesChart.data.datasets[4].data[2] = nickGoes[4];
-      guessesChart.data.datasets[5].data[0] = chrisGoes[5];
-      guessesChart.data.datasets[5].data[1] = juliaGoes[5];
-      guessesChart.data.datasets[5].data[2] = nickGoes[5];
-      guessesChart.data.datasets[6].data[0] = chrisGoes[6];
-      guessesChart.data.datasets[6].data[1] = juliaGoes[6];
-      guessesChart.data.datasets[6].data[2] = nickGoes[6];
-      guessesChart.update();
-    } else {
-      guessesChart = new Chart(guessesBarChartCtx, guessesConfig); //new Chart
-                  
-  } //if (guessesChart)
+      if (guessesChart) {
+        guessesChart.data.datasets[0].data[0] = chrisGoes[0];
+        guessesChart.data.datasets[0].data[1] = juliaGoes[0];
+        guessesChart.data.datasets[0].data[2] = nickGoes[0];
+        guessesChart.data.datasets[1].data[0] = chrisGoes[1];
+        guessesChart.data.datasets[1].data[1] = juliaGoes[1];
+        guessesChart.data.datasets[1].data[2] = nickGoes[1];
+        guessesChart.data.datasets[2].data[0] = chrisGoes[2];
+        guessesChart.data.datasets[2].data[1] = juliaGoes[2];
+        guessesChart.data.datasets[2].data[2] = nickGoes[2];
+        guessesChart.data.datasets[3].data[0] = chrisGoes[3];
+        guessesChart.data.datasets[3].data[1] = juliaGoes[3];
+        guessesChart.data.datasets[3].data[2] = nickGoes[3];
+        guessesChart.data.datasets[4].data[0] = chrisGoes[4];
+        guessesChart.data.datasets[4].data[1] = juliaGoes[4];
+        guessesChart.data.datasets[4].data[2] = nickGoes[4];
+        guessesChart.data.datasets[5].data[0] = chrisGoes[5];
+        guessesChart.data.datasets[5].data[1] = juliaGoes[5];
+        guessesChart.data.datasets[5].data[2] = nickGoes[5];
+        guessesChart.data.datasets[6].data[0] = chrisGoes[6];
+        guessesChart.data.datasets[6].data[1] = juliaGoes[6];
+        guessesChart.data.datasets[6].data[2] = nickGoes[6];
+        guessesChart.update();
+      } else {
+        guessesChart = new Chart(guessesBarChartCtx, guessesConfig); //new Chart            
+      } //if (guessesChart)
         
-  document.getElementById("everything").style.display = 'block';
+      document.getElementById("everything").style.display = 'block';
 
-} //async function fetchDataAndUpdateUI
+    } //async function fetchDataAndUpdateUI
       
-entryForm.onsubmit = async (e) => {
-  e.preventDefault();
-  const TheDate = entryForm.thedate.value;
-  const TheWord = entryForm.theword.value.toUpperCase();
-  const Chris = entryForm.chris.value;
-  const Julia = entryForm.julia.value;
-  const Nick = entryForm.nick.value;
+    entryForm.onsubmit = async (e) => {
+      e.preventDefault();
+      const TheDate = entryForm.thedate.value;
+      const TheWord = entryForm.theword.value.toUpperCase();
+      const Chris = entryForm.chris.value;
+      const Julia = entryForm.julia.value;
+      const Nick = entryForm.nick.value;
 
-  await fetch('https://sheetdb.io/api/v1/fxv69jnm5s4f6', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify([{ TheDate, TheWord, Chris, Julia, Nick }])
-  }); //await fetch
+      await fetch('https://sheetdb.io/api/v1/fxv69jnm5s4f6', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify([{ TheDate, TheWord, Chris, Julia, Nick }])
+      }); //await fetch
 
-  entryForm.reset();  // Clear form inputs
+      entryForm.reset();  // Clear form inputs
     
-  fetchDataAndUpdateUI();  // Refresh table and chart
+      fetchDataAndUpdateUI();  // Refresh table and chart
      
-}; //entryForm.onsubmit
+    }; //entryForm.onsubmit
 
 // Initial data load
-fetchDataAndUpdateUI();
+    fetchDataAndUpdateUI();
   
-</script>
+  </script>
     
 </body>
   
