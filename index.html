@@ -17,6 +17,7 @@
       display: block;
       border: 1px solid #ccc;
       margin: auto;
+      width: 50%;
       }
     </style>
 
@@ -58,8 +59,11 @@
 
     </form>
 
+    <p style="font-size: 30px;"><strong>Outright Wins</strong></p>
     <canvas id="wins-donut-chart" width="600" height="400"></canvas>
+    <p style="font-size: 30px;"><strong>Outright Losses</strong></p>
     <canvas id="losses-donut-chart" width="600" height="400"></canvas>
+    <p style="font-size: 30px;"><strong>Guess Distribution</strong></p>
     <canvas id="guesses-bar-chart" width="600" height="400"></canvas>
 
   </div>
@@ -229,10 +233,10 @@
                   } //font
                 } //labels
               }, //legend
-              title: {
-                display: true,
-                text: "Outright Wins"
-              }, //title
+    //          title: {
+    //            display: true,
+    //            text: "Outright Wins"
+    //          }, //title
                tooltip: {
                 titleFont: {
                   size: 30
@@ -268,10 +272,10 @@
                   } //font
                 } //labels
               }, //legend
-              title: {
-              display: true,
-              text: "Outright Losses"
-              }, //title
+    //          title: {
+    //          display: true,
+    //          text: "Outright Losses"
+    //          }, //title
               tooltip: {
                 titleFont: {
                   size: 30
@@ -347,10 +351,10 @@
         data: guessesData,
         options: {
           plugins: {
-            title: {
-              display: true,
-              text: "Guess Distribution"
-            }, //title
+//            title: {
+//              display: true,
+//              text: "Guess Distribution"
+//            }, //title
             legend: {
               labels: {
                 font: {
