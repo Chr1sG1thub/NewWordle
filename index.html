@@ -17,7 +17,7 @@
       display: block;
       border: 1px solid #ccc;
       margin: auto;
-      width: 50%;
+      width: 70%;
       }
     </style>
 
@@ -28,7 +28,7 @@
   <body>
     <div id="everything">
       
-      <p style="font-size: 30px;"><strong>This Year's Results</strong></p>
+      <p align=center style="font-size: 30px;"><strong>This Year's Results</strong></p>
       
       <div class="table-container" id="scrollTable">
 
@@ -37,8 +37,9 @@
         <tbody id="table-body"></tbody>
       </table>
       </div>
+      <hr>
 
-      <p style="font-size: 30px;"><strong>Add New Wordle Entry</strong></p>
+      <p align=center style="font-size: 30px;"><strong>Add New Wordle Entry</strong></p>
 
       <form id="entry-form" style="font-size: 30px;">
  
@@ -58,13 +59,17 @@
       <button type="submit" style="font-size: 30px">Submit</button>
 
     </form>
-
-    <p style="font-size: 30px;"><strong>Outright Wins</strong></p>
+    <hr>
+    <p align=center style="font-size: 30px;"><strong>Outright Wins</strong></p>
     <canvas id="wins-donut-chart" width="600" height="400"></canvas>
-    <p style="font-size: 30px;"><strong>Outright Losses</strong></p>
+    <hr>
+    <p align=center style="font-size: 30px;"><strong>Outright Losses</strong></p>
     <canvas id="losses-donut-chart" width="600" height="400"></canvas>
-    <p style="font-size: 30px;"><strong>Guess Distribution</strong></p>
+    <hr>
+    <p align=center style="font-size: 30px;"><strong>Guess Distribution</strong></p>
     <canvas id="guesses-bar-chart" width="600" height="400"></canvas>
+    <hr>
+  
 
   </div>
     
@@ -362,7 +367,18 @@
                 } //font
               } //labels
             }, //legend
-         }, //plugins
+                tooltip: {
+                titleFont: {
+                  size: 30
+                }, //titleFont
+                bodyFont: {
+                  size: 30
+                }, //bodyFont
+                footerFont: {
+                  size: 30 // font size for tooltip footer text
+                } //footerfont
+              } //tooltip
+       }, //plugins
           responsive: true,
           scales: {
             x: {
