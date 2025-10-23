@@ -10,15 +10,28 @@
         padding: 10px;
       }
     </style>
+    <style>
+      .table-container {
+      height: 200px;              /* enough for ~10 rows */
+      overflow-y: scroll;         /* vertical scrollbar */
+      display: block;
+      border: 1px solid #ccc;
+      }
+    </style>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
   </head>
   
   <body>
     <div id="everything">
+      <div class="table-container" id="scrollTable">
+
       <table style="font-size: 30px; padding: 6px">
         <thead><tr><th>Date</th></th><th>Word</th><th>Chris</th><th>Julia</th><th>Nick</th></tr></thead>
         <tbody id="table-body"></tbody>
       </table>
+      </div>
 
       <p style="font-size: 30px;"><strong>Add New Wordle Entry</strong></p>
 
@@ -136,11 +149,15 @@
           noOneLosses = noOneLosses + 1;
         }
 
-        if (indx >= (data.length - 10)) {
+        //if (indx >= (data.length - 10)) {
           tableBody.innerHTML += `<tr><td align='right'>${myRow["TheDate"]}</td><td align='center'>${myRow["TheWord"]}</td><td align='center' style='background-color: ${chrisBG}'>${myRow["Chris"]}</td><td align='center' style='background-color: ${juliaBG}'>${myRow["Julia"]}</td><td align='center' style='background-color: ${nickBG}'>${myRow["Nick"]}</td></tr>`;
-        }
+        //}
         indx = indx + 1;
       }); //data.forEach
+
+        const container = document.getElementById('scrollTable');
+  container.scrollTop = container.scrollHeight;
+
         
 //console.log(chrisGoes, juliaGoes, nickGoes);
         
