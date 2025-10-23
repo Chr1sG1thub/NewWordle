@@ -155,7 +155,7 @@
           'Julia',
           'Nick',
           'Draw'
-        ],
+        ], //labels
         datasets: [{
           label: 'Wins',
           data: [chrisWins, juliaWins, nickWins, noOneWins],
@@ -164,9 +164,9 @@
             'pink',
             'green',
             'grey'
-          ],
+          ], //backgroundColor
           hoverOffset: 4
-        }]
+        }] //datasets
       }; //winData
 
       const lossesData = {
@@ -175,7 +175,7 @@
           'Julia',
           'Nick',
           'Draw'
-        ],
+        ], //labels
         datasets: [{
           label: 'Losses',
           data: [chrisLosses, juliaLosses, nickLosses, noOneLosses],
@@ -184,9 +184,9 @@
             'pink',
             'green',
             'grey'
-          ],
+          ], //backgroundColor
           hoverOffset: 4
-        }]
+        }] //datasets
       }; //lossesData
         
       if (winChart) {
@@ -204,23 +204,23 @@
               legend: {
                 labels: {
                   font: {
-                    size: 30 // Increase this number to make the legend font bigger
-                  }
-                }
-              },
+                    size: 30
+                  } //font
+                } //labels
+              }, //legend
               tooltip: {
                 titleFont: {
-                  size: 30 // font size for tooltip title
-              },
+                  size: 30
+              }, //titleFont
               bodyFont: {
                 size: 30 // font size for tooltip body text
-              },
+              }, //bodyFont
                 footerFont: {
                   size: 30 // font size for tooltip footer text
-                }
-              }
-            }
-          }
+                } //footerFont
+              } //tooltip
+            } //plugins
+          } //options
        }); //new Chart
      } //if (winChart)
 
@@ -239,16 +239,16 @@
              legend: {
                labels: {
                  font: {
-                   size: 30 // Increase this number to make the legend font bigger
+                   size: 30
                  } //font
                } //labels
              }, //legend
              tooltip: {
                  titleFont: {
-                   size: 30 // font size for tooltip title
+                   size: 30
                  }, //titleFont
                  bodyFont: {
-                   size: 30 // font size for tooltip body text
+                   size: 30
                  }, //bodyFont
                  footerFont: {
                    size: 30 // font size for tooltip footer text
@@ -260,69 +260,69 @@
 
       } //if (lossesChart)
         
-const guessesData = {
-  labels: ["Chris", "Julia", "Nick"],
-  datasets: [{
-    label: '1',
-    type: 'bar',
-    stack: 'combined',
-    data: [chrisGoes[0], juliaGoes[0], nickGoes[0]],
-    backgroundColor: "blue"
-  },
-    {
-    label: '2',
-    type: 'bar',
-    stack: 'combined',
-    data: [chrisGoes[1], juliaGoes[1], nickGoes[1]],
-    backgroundColor: "green"
-  },
-    {
-    label: '3',
-    type: 'bar',
-    stack: 'combined',
-    data: [chrisGoes[2], juliaGoes[2], nickGoes[2]],
-    backgroundColor: "purple"
-  },
-    {
-    label: '4',
-    type: 'bar',
-    stack: 'combined',
-    data: [chrisGoes[3], juliaGoes[3], nickGoes[3]],
-    backgroundColor: "yellow"
-  },
-    {
-    label: '5',
-    type: 'bar',
-    stack: 'combined',
-    data: [chrisGoes[4], juliaGoes[4], nickGoes[4]],
-    backgroundColor: "orange"
-  },
-    {
-    label: '6',
-    type: 'bar',
-    stack: 'combined',
-    data: [chrisGoes[5], juliaGoes[5], nickGoes[5]],
-    backgroundColor: "grey"
-  },
-    {
-    label: '7',
-    type: 'bar',
-    stack: 'combined',
-    data: [chrisGoes[6], juliaGoes[6], nickGoes[6]],
-    backgroundColor: "salmon"
-  }]
-}; //const guessesData
+      const guessesData = {
+        labels: ["Chris", "Julia", "Nick"],
+        datasets: [{
+          label: '1',
+          type: 'bar',
+          stack: 'combined',
+          data: [chrisGoes[0], juliaGoes[0], nickGoes[0]],
+          backgroundColor: "blue"
+        }, //set 1
+        {
+          label: '2',
+          type: 'bar',
+          stack: 'combined',
+          data: [chrisGoes[1], juliaGoes[1], nickGoes[1]],
+          backgroundColor: "green"
+        }, //set 2
+        {
+          label: '3',
+          type: 'bar',
+          stack: 'combined',
+          data: [chrisGoes[2], juliaGoes[2], nickGoes[2]],
+          backgroundColor: "purple"
+        }, //set 3
+        {
+          label: '4',
+          type: 'bar',
+          stack: 'combined',
+          data: [chrisGoes[3], juliaGoes[3], nickGoes[3]],
+          backgroundColor: "yellow"
+        }, //set 4
+        {
+          label: '5',
+          type: 'bar',
+          stack: 'combined',
+          data: [chrisGoes[4], juliaGoes[4], nickGoes[4]],
+          backgroundColor: "orange"
+        }, //set 5
+        {
+          label: '6',
+          type: 'bar',
+          stack: 'combined',
+          data: [chrisGoes[5], juliaGoes[5], nickGoes[5]],
+          backgroundColor: "grey"
+        }, //set 6
+        {
+          label: '7',
+          type: 'bar',
+          stack: 'combined',
+          data: [chrisGoes[6], juliaGoes[6], nickGoes[6]],
+          backgroundColor: "salmon"
+        }] //datasets
+      }; //const guessesData
 
- const guessesConfig = {
+      const guessesConfig = {
 //      type: "bar",
-      data: guessesData,
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: "Guesses"
-          }
-        },
+        data: guessesData,
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: "Guesses"
+            } //title
+          }, //plugins
         responsive: true,
         scales: {
           x: {
@@ -331,68 +331,68 @@ const guessesData = {
            y: {
             stacked: true
           }
-        }
-      }
+        } //scales
+      } //options
     }; //const guessesConfig
 
 
-      if (guessesChart) {
-          guessesChart.data.datasets[0].data[0] = chrisGoes[0];
-          guessesChart.data.datasets[0].data[1] = juliaGoes[0];
-          guessesChart.data.datasets[0].data[2] = nickGoes[0];
-          guessesChart.data.datasets[1].data[0] = chrisGoes[1];
-          guessesChart.data.datasets[1].data[1] = juliaGoes[1];
-          guessesChart.data.datasets[1].data[2] = nickGoes[1];
-          guessesChart.data.datasets[2].data[0] = chrisGoes[2];
-          guessesChart.data.datasets[2].data[1] = juliaGoes[2];
-          guessesChart.data.datasets[2].data[2] = nickGoes[2];
-          guessesChart.data.datasets[3].data[0] = chrisGoes[3];
-          guessesChart.data.datasets[3].data[1] = juliaGoes[3];
-          guessesChart.data.datasets[3].data[2] = nickGoes[3];
-          guessesChart.data.datasets[4].data[0] = chrisGoes[4];
-          guessesChart.data.datasets[4].data[1] = juliaGoes[4];
-          guessesChart.data.datasets[4].data[2] = nickGoes[4];
-          guessesChart.data.datasets[5].data[0] = chrisGoes[5];
-          guessesChart.data.datasets[5].data[1] = juliaGoes[5];
-          guessesChart.data.datasets[5].data[2] = nickGoes[5];
-          guessesChart.data.datasets[6].data[0] = chrisGoes[6];
-          guessesChart.data.datasets[6].data[1] = juliaGoes[6];
-          guessesChart.data.datasets[6].data[2] = nickGoes[6];
-          guessesChart.update();
-       } else {
-          guessesChart = new Chart(guessesBarChartCtx, guessesConfig); //new Chart
+    if (guessesChart) {
+      guessesChart.data.datasets[0].data[0] = chrisGoes[0];
+      guessesChart.data.datasets[0].data[1] = juliaGoes[0];
+      guessesChart.data.datasets[0].data[2] = nickGoes[0];
+      guessesChart.data.datasets[1].data[0] = chrisGoes[1];
+      guessesChart.data.datasets[1].data[1] = juliaGoes[1];
+      guessesChart.data.datasets[1].data[2] = nickGoes[1];
+      guessesChart.data.datasets[2].data[0] = chrisGoes[2];
+      guessesChart.data.datasets[2].data[1] = juliaGoes[2];
+      guessesChart.data.datasets[2].data[2] = nickGoes[2];
+      guessesChart.data.datasets[3].data[0] = chrisGoes[3];
+      guessesChart.data.datasets[3].data[1] = juliaGoes[3];
+      guessesChart.data.datasets[3].data[2] = nickGoes[3];
+      guessesChart.data.datasets[4].data[0] = chrisGoes[4];
+      guessesChart.data.datasets[4].data[1] = juliaGoes[4];
+      guessesChart.data.datasets[4].data[2] = nickGoes[4];
+      guessesChart.data.datasets[5].data[0] = chrisGoes[5];
+      guessesChart.data.datasets[5].data[1] = juliaGoes[5];
+      guessesChart.data.datasets[5].data[2] = nickGoes[5];
+      guessesChart.data.datasets[6].data[0] = chrisGoes[6];
+      guessesChart.data.datasets[6].data[1] = juliaGoes[6];
+      guessesChart.data.datasets[6].data[2] = nickGoes[6];
+      guessesChart.update();
+    } else {
+      guessesChart = new Chart(guessesBarChartCtx, guessesConfig); //new Chart
                   
-     } //if (guessesChart)
+  } //if (guessesChart)
         
-        document.getElementById("everything").style.display = 'block';
+  document.getElementById("everything").style.display = 'block';
 
-      } //async function fetchDataAndUpdateUI
+} //async function fetchDataAndUpdateUI
       
-      entryForm.onsubmit = async (e) => {
-        e.preventDefault();
-        const TheDate = entryForm.thedate.value;
-        const TheWord = entryForm.theword.value.toUpperCase();
-        const Chris = entryForm.chris.value;
-        const Julia = entryForm.julia.value;
-        const Nick = entryForm.nick.value;
+entryForm.onsubmit = async (e) => {
+  e.preventDefault();
+  const TheDate = entryForm.thedate.value;
+  const TheWord = entryForm.theword.value.toUpperCase();
+  const Chris = entryForm.chris.value;
+  const Julia = entryForm.julia.value;
+  const Nick = entryForm.nick.value;
 
-        await fetch('https://sheetdb.io/api/v1/fxv69jnm5s4f6', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify([{ TheDate, TheWord, Chris, Julia, Nick }])
-        }); //await fetch
+  await fetch('https://sheetdb.io/api/v1/fxv69jnm5s4f6', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify([{ TheDate, TheWord, Chris, Julia, Nick }])
+  }); //await fetch
 
-        entryForm.reset();  // Clear form inputs
+  entryForm.reset();  // Clear form inputs
     
-        fetchDataAndUpdateUI();  // Refresh table and chart
+  fetchDataAndUpdateUI();  // Refresh table and chart
      
-      }; //entryForm.onsubmit
+}; //entryForm.onsubmit
 
 // Initial data load
-      fetchDataAndUpdateUI();
+fetchDataAndUpdateUI();
   
-    </script>
+</script>
     
-  </body>
+</body>
   
 </html>
