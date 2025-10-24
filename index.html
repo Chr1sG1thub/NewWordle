@@ -90,6 +90,8 @@
 
   <script>
 
+Chart.register(ChartDataLabels);
+    
     let today = new Date();
  
     let dd = today.getDate();
@@ -380,7 +382,7 @@
 //      type: "bar",
         data: guessesData,
         options: {
-          plugins: {[ChartDataLabels], // <- MUST BE ADDED
+          plugins: {
  
 //            title: {
 //              display: true,
