@@ -383,6 +383,18 @@
 //              display: true,
 //              text: "Guess Distribution"
 //            }, //title
+  datalabels: {
+      anchor: 'center',      // position of label relative to bar segment
+      align: 'center',       // alignment of label inside segment
+      color: 'white',        // label color
+      font: {
+        weight: 'bold',
+        size: 12
+      },
+      formatter: function(value) {
+        return value;        // show the segment value
+      }
+    },
             legend: {
               labels: {
                 font: {
