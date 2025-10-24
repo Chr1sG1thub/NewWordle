@@ -258,7 +258,23 @@ Chart.register(ChartDataLabels);
           data: winData,
           options: {
             plugins: {
-              legend: {
+    datalabels: {
+      anchor: 'center',      // position of label relative to bar segment
+      align: 'center',       // alignment of label inside segment
+  //    color: 'white',        // label color
+      font: {
+        weight: 'bold',
+        size: 30
+      },
+      formatter: function(value) {
+   if (value < 3) {
+          return null; // suppress label
+        }
+        return value; // show label otherwise
+
+      }
+      }, //datalabels
+            legend: {
                 labels: {
                   font: {
                     size: 30
@@ -297,6 +313,22 @@ Chart.register(ChartDataLabels);
           data: lossesData,
           options: {
             plugins: {
+  datalabels: {
+      anchor: 'center',      // position of label relative to bar segment
+      align: 'center',       // alignment of label inside segment
+  //    color: 'white',        // label color
+      font: {
+        weight: 'bold',
+        size: 30
+      },
+      formatter: function(value) {
+   if (value < 3) {
+          return null; // suppress label
+        }
+        return value; // show label otherwise
+
+      }
+      }, //datalabels
               legend: {
                 labels: {
                   font: {
@@ -392,10 +424,10 @@ Chart.register(ChartDataLabels);
       anchor: 'center',      // position of label relative to bar segment
       align: 'center',       // alignment of label inside segment
   //    color: 'white',        // label color
- //     font: {
-   //     weight: 'bold',
-   //     size: 12
-  //    },
+      font: {
+        weight: 'bold',
+        size: 30
+      },
       formatter: function(value) {
    if (value < 3) {
           return null; // suppress label
@@ -403,7 +435,7 @@ Chart.register(ChartDataLabels);
         return value; // show label otherwise
 
       }
-      },
+      }, //datalabels
     //     return value;        // show the segment value
    //   }
  //  },
