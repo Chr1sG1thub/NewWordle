@@ -31,7 +31,7 @@
       <p align=center style="font-size: 36px;"><strong>Loading Results. Please wait...</strong></p>   
     </div>
     
-    <div id="everything" style="display: block">
+    <div id="everything" style="display: none">
       
       <p align=center style="font-size: 36px;"><strong>This Year's Results</strong></p>
       
@@ -439,6 +439,9 @@
         
       document.getElementById("nothing").style.display = 'none';
       document.getElementById("everything").style.display = 'block';
+ 
+      const container = document.getElementById('scrollTable');
+      container.scrollTop = container.scrollHeight;
 
     } //async function fetchDataAndUpdateUI
       
