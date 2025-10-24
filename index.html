@@ -26,9 +26,11 @@
   </head>
   
   <body>
+    <div id="nothing" style="display: block">
+    
     <div id="everything" style="display: none">
       
-      <p align=center style="font-size: 30px;"><strong>This Year's Results</strong></p>
+      <p align=center style="font-size: 36px;"><strong>This Year's Results</strong></p>
       
       <div class="table-container" id="scrollTable">
 
@@ -39,16 +41,16 @@
       </div>
       <hr>
 
-    <p align=center style="font-size: 30px;"><strong>Outright Wins</strong></p>
+    <p align=center style="font-size: 36px;"><strong>Outright Wins</strong></p>
     <canvas id="wins-donut-chart" width="600" height="400"></canvas>
     <hr>
-    <p align=center style="font-size: 30px;"><strong>Outright Losses</strong></p>
+    <p align=center style="font-size: 36px;"><strong>Outright Losses</strong></p>
     <canvas id="losses-donut-chart" width="600" height="400"></canvas>
     <hr>
-    <p align=center style="font-size: 30px;"><strong>Guess Distribution</strong></p>
+    <p align=center style="font-size: 36px;"><strong>Guess Distribution</strong></p>
     <canvas id="guesses-bar-chart" width="600" height="800"></canvas>
     <hr>
-      <p align=center style="font-size: 30px;"><strong>Add New Wordle Entry</strong></p>
+      <p align=center style="font-size: 36px;"><strong>Add New Wordle Entry</strong></p>
 
       <form id="entry-form" style="font-size: 30px;">
  
@@ -66,7 +68,7 @@
       <input type="number" maxlength="1" id="xnick" style="font-size: 30px; width: 60px;" name="nick" required>
       <br><br>
       <div style="text-align: center;">
-        <button type="submit" style="font-size: 30px">Submit</button>
+        <button type="submit" style="font-size: 36px">Submit</button>
       </div>
 
     </form>
@@ -431,6 +433,7 @@
         guessesChart = new Chart(guessesBarChartCtx, guessesConfig); //new Chart            
       } //if (guessesChart)
         
+      document.getElementById("nothing").style.display = 'none';
       document.getElementById("everything").style.display = 'block';
 
     } //async function fetchDataAndUpdateUI
