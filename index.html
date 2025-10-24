@@ -134,11 +134,19 @@
       let juliaBG;
       let nickBG;
 
+      let chrisCount = 0;
+      let juliaCount = 0;
+      let nickCount = 0;
+      
       let chrisGoes = [0,0,0,0,0,0,0];
       let juliaGoes = [0,0,0,0,0,0,0];
       let nickGoes = [0,0,0,0,0,0,0];
         
       data.forEach(myRow => {
+
+        chrisCount = chrisCount + myRow.Chris;
+        juliaCount = juliaCount + myRow.Julia;
+        nickCount = nickCount + myRow.Nick;
 
         chrisGoes[myRow.Chris-1]++;
         juliaGoes[myRow.Julia-1]++;
@@ -179,7 +187,9 @@
         //}
         indx = indx + 1;
       }); //data.forEach
-
+      
+      console.log (chrisCount, juliaCount, nickCount);
+      
        // const container = document.getElementById('scrollTable');
       
   //container.scrollTop = container.scrollHeight;
