@@ -388,21 +388,20 @@ Chart.register(ChartDataLabels);
 //              display: true,
 //              text: "Guess Distribution"
 //            }, //title
- /// datalabels: {
- //     anchor: 'center',      // position of label relative to bar segment
- //     align: 'center',       // alignment of label inside segment
+  datalabels: {
+      anchor: 'center',      // position of label relative to bar segment
+      align: 'center',       // alignment of label inside segment
   //    color: 'white',        // label color
  //     font: {
    //     weight: 'bold',
    //     size: 12
   //    },
-  ///    formatter: function(value) {
-   ///    if (value < 10) {
-  ///        return null; // suppress label
-   ///     }
- ///       return value; // show label otherwise
-  ///    }
- /// }
+      formatter: function(value) {
+   if (value < 3) {
+          return null; // suppress label
+        }
+        return value; // show label otherwise
+      },
     //     return value;        // show the segment value
    //   }
  //  },
