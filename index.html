@@ -36,7 +36,7 @@
       <p align=center style="font-size: 36px;"><strong>This Year's Results</strong></p>
       
       <table style="font-size: 36px; padding: 6px" align=center>
-        <thead><tr><th width=200px style="border: none">Date</th><th width=120px style="border: none">Word</th><th width=60px style="border: none">Chris</th><th width=60px style="border: none">Julia</th><th width=60px style="border: none">Nick</th></tr></thead>
+        <thead><tr><th align=center width=200px style="border: none">Date</th><th align=center width=150px style="border: none">Word</th><th align=center width=80px style="border: none">Chris</th><th align=center width=80px style="border: none">Julia</th><th align=center width=80px style="border: none">Nick</th></tr></thead>
       </table>
       
        <div class="table-container" id="scrollTable">
@@ -173,7 +173,7 @@
         }
 
         //if (indx >= (data.length - 10)) {
-          tableBody.innerHTML += `<tr><td  width=200px style="border: none" align='right'>${myRow["TheDate"]}</td><td width=120px style="border: none" align='center'>${myRow["TheWord"]}</td><td width=60px style="border: none" align='center' style='background-color: ${chrisBG}'>${myRow["Chris"]}</td><td width=60px style="border: none" align='center' style='background-color: ${juliaBG}'>${myRow["Julia"]}</td><td width=60px style="border: none" align='center' style='background-color: ${nickBG}'>${myRow["Nick"]}</td></tr>`;
+          tableBody.innerHTML += `<tr><td  width=200px style="border: none" align='center'>${myRow["TheDate"]}</td><td width=150px style="border: none" align='center'>${myRow["TheWord"]}</td><td width=80px style="border: none" align='center' style='background-color: ${chrisBG}'>${myRow["Chris"]}</td><td width=80px style="border: none" align='center' style='background-color: ${juliaBG}'>${myRow["Julia"]}</td><td width=80px style="border: none" align='center' style='background-color: ${nickBG}'>${myRow["Nick"]}</td></tr>`;
         //}
         indx = indx + 1;
       }); //data.forEach
