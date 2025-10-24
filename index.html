@@ -380,7 +380,8 @@
 //      type: "bar",
         data: guessesData,
         options: {
-          plugins: {
+          plugins: {[ChartDataLabels], // <- MUST BE ADDED
+ 
 //            title: {
 //              display: true,
 //              text: "Guess Distribution"
