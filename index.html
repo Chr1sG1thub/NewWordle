@@ -410,7 +410,7 @@ Chart.register(ChartDataLabels);
         size: 30
       },
        formatter: (value, ctx) => {
-          const label = ctx.chart.data.labels[ctx.dataIndex];
+          const label = ctx.dataset.data[ctx.dataIndex].label;
           return label + ' guesses: ' + value;
            return value;
         }
