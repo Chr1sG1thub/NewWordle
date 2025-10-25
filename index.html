@@ -411,10 +411,12 @@ Chart.register(ChartDataLabels);
         size: 30
       },
        formatter: (value, ctx) => {
+         if (value == 0) return null;
           const label = ctx.dataset.label;
          if (label == "7") return 'Fails: ' + value;
-         return label + ' guesses: ' + value;
-     //      return value;
+         if (label == "1") return label + ' guess: ' + value;
+          return label + ' guesses: ' + value;
+    //      return value;
         }
      }, //datalabels
     //     return value;        // show the segment value
