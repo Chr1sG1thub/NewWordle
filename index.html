@@ -273,9 +273,10 @@ Chart.register(ChartDataLabels);
       }, //datalabels
             legend: {
                 labels: {
-                  font: {
-                    size: 30
-                  }, //font
+                  enabled: false
+   //               font: {
+    //                size: 30
+    //              }, //font
                 } //labels
               }, //legend
     //          title: {
@@ -312,16 +313,18 @@ Chart.register(ChartDataLabels);
       },
        formatter: (value, ctx) => {
           const label = ctx.chart.data.labels[ctx.dataIndex];
-          return label + ': ' + value;
+          //return label + ': ' + value;
+           return value;
         }
       }, //datalabels
               legend: {
                 labels: {
-                  font: {
-                    size: 30
-                  } //font
+                  enabled: false
+   //               font: {
+    //                size: 30
+    //              }, //font
                 } //labels
-              }, //legend
+             }, //legend
     //          title: {
     //          display: true,
     //          text: "Outright Losses"
@@ -415,10 +418,16 @@ Chart.register(ChartDataLabels);
    //   }
  //  },
             legend: {
-              labels: {
-                font: {
-                  size: 30
-                }, //font
+                labels: {
+                  enabled: false
+   //               font: {
+    //                size: 30
+    //              }, //font
+                }, //labels
+  //             labels: {
+  //             font: {
+   //               size: 30
+    //            }, //font
           generateLabels: function(chart) {
             const original = Chart.defaults.plugins.legend.labels.generateLabels(chart);
             original.forEach(label => {
