@@ -443,7 +443,16 @@ Chart.register(ChartDataLabels);
               labels: {
                 font: {
                   size: 30
-                }//, //font
+                }, //font
+          generateLabels: function(chart) {
+            const original = Chart.defaults.plugins.legend.labels.generateLabels(chart);
+            original.forEach(label => {
+              if (label.text === '7') {
+                label.text = 'Fail'; // change "7" to "Fail"
+              }
+            });
+            return original;
+          }
   ///        generateLabels: function(chart) {
   ///          const original = Chart.overrides.bar.plugins.legend.labels.generateLabels(chart);
 ///            return original.map(label => {
