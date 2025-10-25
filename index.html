@@ -446,10 +446,10 @@ Chart.register(ChartDataLabels);
                 }, //font
           generateLabels: function(chart) {
             const original = Chart.overrides.bar.plugins.legend.labels.generateLabels(chart);
-            return original.map(label => {
+///            return original.map(label => {
               // Custom formatter logic
-              if (label.text = "7") label = "Fail";
-              return label;
+///              if (label.text = "7") label = "Fail";
+ ///             return label;
             });
           }
               } //labels
