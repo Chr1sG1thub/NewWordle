@@ -283,17 +283,9 @@ Chart.register(ChartDataLabels);
     //            text: "Outright Wins"
     //          }, //title
                tooltip: {
-                titleFont: {
-                  size: 30
-              }, //titleFont
-              bodyFont: {
-                size: 30 // font size for tooltip body text
-              }, //bodyFont
-                footerFont: {
-                  size: 30 // font size for tooltip footer text
-                } //footerFont
-              } //tooltip
-            } //plugins
+                 enabled: false
+          } //tooltip
+               } //plugins
           } //options
         }); //new Chart
       } //if (winChart)
@@ -334,18 +326,10 @@ Chart.register(ChartDataLabels);
     //          display: true,
     //          text: "Outright Losses"
     //          }, //title
-                tooltip: {
-                titleFont: {
-                  size: 30
-              }, //titleFont
-              bodyFont: {
-                size: 30 // font size for tooltip body text
-              }, //bodyFont
-                footerFont: {
-                  size: 30 // font size for tooltip footer text
-                } //footerFont
-              } //tooltip
-           } //plugins
+               tooltip: {
+                 enabled: false
+          } //tooltip
+            } //plugins
           } //options
         }); //new Chart
 
