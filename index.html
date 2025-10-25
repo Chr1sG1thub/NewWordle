@@ -423,19 +423,19 @@ Chart.register(ChartDataLabels);
    //               font: {
     //                size: 30
     //              }, //font
-                }, //labels
+    //            }, //labels
   //             labels: {
   //             font: {
    //               size: 30
     //            }, //font
-          generateLabels: function(chart) {
-            const original = Chart.defaults.plugins.legend.labels.generateLabels(chart);
-            original.forEach(label => {
-              if (label.text === '7') {
-                label.text = 'Fail'; // change "7" to "Fail"
-              }
-            });
-            return original;
+   //       generateLabels: function(chart) {
+    //        const original = Chart.defaults.plugins.legend.labels.generateLabels(chart);
+     //       original.forEach(label => {
+    //          if (label.text === '7') {
+    //            label.text = 'Fail'; // change "7" to "Fail"
+    //         }
+     //       });
+     //       return original;
           }
   ///        generateLabels: function(chart) {
   ///          const original = Chart.overrides.bar.plugins.legend.labels.generateLabels(chart);
