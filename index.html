@@ -318,13 +318,10 @@ Chart.register(ChartDataLabels);
         weight: 'bold',
         size: 30
       },
-      formatter: function(value) {
-   if (value < 3) {
-          return null; // suppress label
+       formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label + ': ' + value;
         }
-        return value; // show label otherwise
-
-      }
       }, //datalabels
               legend: {
                 labels: {
@@ -425,14 +422,11 @@ Chart.register(ChartDataLabels);
         weight: 'bold',
         size: 30
       },
-      formatter: function(value) {
-   if (value < 3) {
-          return null; // suppress label
+       formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label + ': ' + value;
         }
-        return value; // show label otherwise
-
-      }
-      }, //datalabels
+     }, //datalabels
     //     return value;        // show the segment value
    //   }
  //  },
