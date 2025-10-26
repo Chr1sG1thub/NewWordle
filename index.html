@@ -22,6 +22,19 @@
       }
     </style>
 
+    <style>
+    .center-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Vertically center if desired */
+    }
+    .left-text {
+      text-align: left;
+      min-width: 250px; /* Optional: ensures visible width */
+    }
+  </style>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.0/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
@@ -53,8 +66,11 @@
 
     <p align=center style="font-size: 36px;"><strong>Total Guesses</strong></p>
 
-      <div id=totalGuesses></div>
-      
+   <div class="center-container">
+    <div class="left-text" id="totalGuesses">
+    </div>
+  </div>
+     
     <p align=center style="font-size: 36px;"><strong>Outright Wins</strong></p>
     <canvas id="wins-donut-chart" width="600" height="400"></canvas>
     <hr>
