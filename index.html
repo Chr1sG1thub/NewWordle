@@ -51,6 +51,10 @@
       </div>
       <hr>
 
+    <p align=center style="font-size: 36px;"><strong>Total Guesses</strong></p>
+
+      <div id=totalGuesses></div>
+      
     <p align=center style="font-size: 36px;"><strong>Outright Wins</strong></p>
     <canvas id="wins-donut-chart" width="600" height="400"></canvas>
     <hr>
@@ -193,6 +197,10 @@ Chart.register(ChartDataLabels);
       }); //data.forEach
       
       console.log (chrisCount, juliaCount, nickCount);
+      
+    const totalGuesses = document.getElementById('totalGuesses');
+
+      totalGuesses.InnerHTML = `Chris has made ${chrisCount} guesses.<br/><br/>Julia has made ${juliaCount} guesses.<br/><br/>Nick has made ${nickCount} guesses.`;
       
        // const container = document.getElementById('scrollTable');
       
