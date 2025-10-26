@@ -27,6 +27,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 75%;
     }
     .left-text {
       text-align: left;
@@ -277,7 +278,7 @@ Chart.register(ChartDataLabels);
         nickJuliaText = '<i>'+(nickJulia)+'</i> worse than <strong>Julia</strong>';
       }
 
-      totalGuesses.innerHTML = `<strong>Chris</strong> has made <i>${chrisCount}</i> guesses, ${chrisJuliaText}, ${chrisNickText}.<br/><br/><strong>Julia</strong> has made <i>${juliaCount}</i> guesses, ${juliaChrisText}, ${juliaNickText}<br/><br/><strong>Nick</strong> has made <i>${nickCount}</i> guesses, ${nickChrisText}, ${nickJuliaText}.<br/><br/>`;
+      totalGuesses.innerHTML = `<strong>Chris</strong> has made <i>${chrisCount}</i> guesses: ${chrisJuliaText}, ${chrisNickText}.<br/><br/><strong>Julia</strong> has made <i>${juliaCount}</i> guesses: ${juliaChrisText}, ${juliaNickText}.<br/><br/><strong>Nick</strong> has made <i>${nickCount}</i> guesses: ${nickChrisText}, ${nickJuliaText}.<br/><br/>`;
       
        // const container = document.getElementById('scrollTable');
       
