@@ -213,11 +213,11 @@ Chart.register(ChartDataLabels);
       let nickJuliaText;
 
       if (chrisJulia == 0) {
-        chrisJuliaText = ', the same as Julia';
+        chrisJuliaText = 'the same as Julia';
       } else if (chrisJulia < 0) {
-        chrisJuliaText = ', '+(-chrisJulia)+' better than Julia';
+        chrisJuliaText = (-chrisJulia)+' better than Julia';
       } else {
-        chrisJuliaText = ', '+(chrisJulia)+' worse than Julia';
+        chrisJuliaText = (chrisJulia)+' worse than Julia';
       }
 
       if (chrisNick == 0) {
@@ -228,7 +228,39 @@ Chart.register(ChartDataLabels);
         chrisNickText = (chrisNick)+' worse than Nick';
       }
 
-      totalGuesses.innerHTML = `Chris has made ${chrisCount} guesses, ${chrisJuliaText}, ${chrisNickText}.<br/><br/>Julia has made ${juliaCount} guesses.<br/><br/>Nick has made ${nickCount} guesses.`;
+      if (juliaChris == 0) {
+        juliaChrisText = 'the same as Chris';
+      } else if (juliaChris < 0) {
+        juliaChrisText = (-juliaChris)+' better than Chris';
+      } else {
+        juliaChrisText = (juliaChris)+' worse than Chris';
+      }
+
+      if (juliaNick == 0) {
+        juliaNickText = 'the same as Nick';
+      } else if (juliaNick < 0) {
+        juliaNickText = (-juliaNick)+' better than Nick';
+      } else {
+        juliaNickText = (juliaNick)+' worse than Nick';
+      }
+
+      if (nickChris == 0) {
+        nickChrisText = 'the same as Chris';
+      } else if (nickChris < 0) {
+        nickChrisText = (-nickChris)+' better than Chris';
+      } else {
+        nickChrisText = (nickChris)+' worse than Chris';
+      }
+
+      if (nickJulia == 0) {
+        nickJuliaText = 'the same as Julia';
+      } else if (nickJulia < 0) {
+        nickJuliaText = (-nickJulia)+' better than Julia';
+      } else {
+        nickJuliaText = (nickJulia)+' worse than Julia';
+      }
+
+      totalGuesses.innerHTML = `Chris has made ${chrisCount} guesses, ${chrisJuliaText}, ${chrisNickText}.<br/><br/>Julia has made ${juliaCount} guesses, ${juliaChrisText}, ${juliaNickText}<br/><br/>Nick has made ${nickCount} guesses, ${nickChrisText}, ${nickJuliaText}.`;
       
        // const container = document.getElementById('scrollTable');
       
