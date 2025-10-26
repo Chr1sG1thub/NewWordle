@@ -196,11 +196,11 @@ Chart.register(ChartDataLabels);
         indx = indx + 1;
       }); //data.forEach
       
-      console.log (chrisCount, juliaCount, nickCount);
+//      console.log (chrisCount, juliaCount, nickCount);
       
     const totalGuesses = document.getElementById('totalGuesses');
 
-      totalGuesses.InnerHTML = `Chris has made ${chrisCount} guesses.<br/><br/>Julia has made ${juliaCount} guesses.<br/><br/>Nick has made ${nickCount} guesses.`;
+      totalGuesses.innerHTML = `Chris has made ${chrisCount} guesses.<br/><br/>Julia has made ${juliaCount} guesses.<br/><br/>Nick has made ${nickCount} guesses.`;
       
        // const container = document.getElementById('scrollTable');
       
