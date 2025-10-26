@@ -199,8 +199,36 @@ Chart.register(ChartDataLabels);
 //      console.log (chrisCount, juliaCount, nickCount);
       
     const totalGuesses = document.getElementById('totalGuesses');
+      let chrisJulia = chrisCount - juliaCount;
+      let chrisNick  = chrisCount - nickCount;
+      let juliaChris = juliaCount - chrisCount;
+      let juliaNick  = juliaCount - nickCount;
+      let nickChris  = nickCount  - chrisCount;
+      let nickJulia  = nickCount  - juliaCount;
+      let chrisJuliaText;
+      let chrisNickText;
+      let juliaChrisText;
+      let juliaNickText;
+      let nickChrisText;
+      let nickJuliaText;
 
-      totalGuesses.innerHTML = `Chris has made ${chrisCount} guesses.<br/><br/>Julia has made ${juliaCount} guesses.<br/><br/>Nick has made ${nickCount} guesses.`;
+      if (chrisJulia == 0) {
+        chrisJuliaText = ', the same as Julia';
+      } else if (chrisJulia < 0) {
+        chrisJuliaText = ', '+(-chrisJulia)+' better than Julia';
+      } else {
+        chrisJuliaText = ', '+(chrisJulia)+' worse than Julia';
+      }
+
+      if (chrisNick == 0) {
+        chrisNickText = 'the same as Nick';
+      } else if (chrisNick < 0) {
+        chrisNickText = (-chrisNick)+' better than Nick';
+      } else {
+        chrisNickText = (chrisNick)+' worse than Nick';
+      }
+
+      totalGuesses.innerHTML = `Chris has made ${chrisCount} guesses, ${chrisJuliaText}, ${chrisNickText}.<br/><br/>Julia has made ${juliaCount} guesses.<br/><br/>Nick has made ${nickCount} guesses.`;
       
        // const container = document.getElementById('scrollTable');
       
