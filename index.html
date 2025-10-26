@@ -70,7 +70,8 @@
     <div class="left-text" id="totalGuesses">
     </div>
   </div>
-     
+     <hr>
+    
     <p align=center style="font-size: 36px;"><strong>Outright Wins</strong></p>
     <canvas id="wins-donut-chart" width="600" height="400"></canvas>
     <hr>
@@ -229,54 +230,54 @@ Chart.register(ChartDataLabels);
       let nickJuliaText;
 
       if (chrisJulia == 0) {
-        chrisJuliaText = 'the same as Julia';
+        chrisJuliaText = 'the same as <strong>Julia</strong>';
       } else if (chrisJulia < 0) {
-        chrisJuliaText = (-chrisJulia)+' better than Julia';
+        chrisJuliaText = (-chrisJulia)+' better than <strong>Julia</strong>';
       } else {
-        chrisJuliaText = (chrisJulia)+' worse than Julia';
+        chrisJuliaText = (chrisJulia)+' worse than <strong>Julia</strong>';
       }
 
       if (chrisNick == 0) {
-        chrisNickText = 'the same as Nick';
+        chrisNickText = 'the same as <strong>Nick</strong>';
       } else if (chrisNick < 0) {
-        chrisNickText = (-chrisNick)+' better than Nick';
+        chrisNickText = (-chrisNick)+' better than <strong>Nick</strong>';
       } else {
-        chrisNickText = (chrisNick)+' worse than Nick';
+        chrisNickText = (chrisNick)+' worse than <strong>Nick</strong>';
       }
 
       if (juliaChris == 0) {
-        juliaChrisText = 'the same as Chris';
+        juliaChrisText = 'the same as <strong>Chris</strong>';
       } else if (juliaChris < 0) {
-        juliaChrisText = (-juliaChris)+' better than Chris';
+        juliaChrisText = (-juliaChris)+' better than <strong>Chris</strong>';
       } else {
-        juliaChrisText = (juliaChris)+' worse than Chris';
+        juliaChrisText = (juliaChris)+' worse than <strong>Chris</strong>';
       }
 
       if (juliaNick == 0) {
-        juliaNickText = 'the same as Nick';
+        juliaNickText = 'the same as <strong>Nick</strong>';
       } else if (juliaNick < 0) {
-        juliaNickText = (-juliaNick)+' better than Nick';
+        juliaNickText = (-juliaNick)+' better than <strong>Nick</strong>';
       } else {
-        juliaNickText = (juliaNick)+' worse than Nick';
+        juliaNickText = (juliaNick)+' worse than <strong>Nick</strong>';
       }
 
       if (nickChris == 0) {
-        nickChrisText = 'the same as Chris';
+        nickChrisText = 'the same as <strong>Chris</strong>';
       } else if (nickChris < 0) {
-        nickChrisText = (-nickChris)+' better than Chris';
+        nickChrisText = (-nickChris)+' better than <strong>Chris</strong>';
       } else {
-        nickChrisText = (nickChris)+' worse than Chris';
+        nickChrisText = (nickChris)+' worse than <strong>Chris</strong>';
       }
 
       if (nickJulia == 0) {
-        nickJuliaText = 'the same as Julia';
+        nickJuliaText = 'the same as <strong>Julia</strong>';
       } else if (nickJulia < 0) {
-        nickJuliaText = (-nickJulia)+' better than Julia';
+        nickJuliaText = (-nickJulia)+' better than <strong>Julia</strong>';
       } else {
-        nickJuliaText = (nickJulia)+' worse than Julia';
+        nickJuliaText = (nickJulia)+' worse than <strong>Julia</strong>';
       }
 
-      totalGuesses.innerHTML = `Chris has made ${chrisCount} guesses, ${chrisJuliaText}, ${chrisNickText}.<br/><br/>Julia has made ${juliaCount} guesses, ${juliaChrisText}, ${juliaNickText}<br/><br/>Nick has made ${nickCount} guesses, ${nickChrisText}, ${nickJuliaText}.`;
+      totalGuesses.innerHTML = `<strong>Chris</strong> has made ${chrisCount} guesses, ${chrisJuliaText}, ${chrisNickText}.<br/><br/><strong>Julia</strong> has made ${juliaCount} guesses, ${juliaChrisText}, ${juliaNickText}<br/><br/><strong>Nick</strong> has made ${nickCount} guesses, ${nickChrisText}, ${nickJuliaText}.`;
       
        // const container = document.getElementById('scrollTable');
       
