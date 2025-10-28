@@ -83,6 +83,9 @@
     <p align=center style="font-size: 40px;"><strong>Guess Distribution</strong></p>
     <canvas id="guesses-bar-chart" width="600" height="800"></canvas>
     <hr>
+
+      <div id="newWord" style="display: none">
+        
       <p align=center style="font-size: 40px;"><strong>Add New Wordle Entry</strong></p>
 
       <form id="entry-form" style="font-size: 30px;">
@@ -106,12 +109,18 @@
 
     </form>
     <hr>
-  
+      </div>
 
   </div>
     
 
   <script>
+
+if (!(/iPhone/.test(navigator.userAgent))) {
+  document.getElementById('newWord').display = 'block';
+}
+
+
 
 Chart.register(ChartDataLabels);
     
