@@ -75,7 +75,11 @@
     <canvas id="guesses-bar-chart" width="600" height="800"></canvas>
     <hr>
 
-     <p align=center style="font-size: 48px;"><strong>Total Guesses</strong></p>
+    <p align=center style="font-size: 48px;"><strong>Total Guesses</strong></p>
+    <canvas id="guesses-bubble-chart" width="600" height="400"></canvas>
+    <hr>
+
+    <p align=center style="font-size: 48px;"><strong>Total Guesses</strong></p>
 
    <table style="font-size: 36px; padding: 6px" align=center width=80%>
 <tr><td id="totalGuesses">
@@ -290,7 +294,42 @@ Chart.register(ChartDataLabels);
 
       totalGuesses.innerHTML = `<strong>Chris</strong> has made <i>${chrisCount}</i> guesses: ${chrisJuliaText}, ${chrisNickText}.<br/><br/><strong>Julia</strong> has made <i>${juliaCount}</i> guesses: ${juliaChrisText}, ${juliaNickText}.<br/><br/><strong>Nick</strong> has made <i>${nickCount}</i> guesses: ${nickChrisText}, ${nickJuliaText}.<br/><br/>`;
       
-       // const container = document.getElementById('scrollTable');
+ const totalsCtx = document.getElementById('guesses-bubble-chart').getContext('2d');
+const totalsData = {
+  datasets: [{
+    label: 'Dataset 1',
+    data: [
+      { x: 10, y: 20, r: chrisCount },
+      { x: 10, y: 40, r: juliaCount },
+      { x: 25, y: 8,  r: nickCount }
+    ],
+    backgroundColor: 'rgba(54, 162, 235, 0.6)'
+  }]
+};
+
+const totalsConfig = {
+  type: 'bubble',
+  data: totalsData,
+  options: {
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'X Axis'
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Y Axis'
+        }
+      }
+    }
+  }
+};
+
+const totalsBubbleChart = new Chart(totalsCtx, totalsConfig);
+      // const container = document.getElementById('scrollTable');
       
   //container.scrollTop = container.scrollHeight;
 
