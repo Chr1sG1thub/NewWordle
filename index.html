@@ -45,12 +45,12 @@
   <body>
     
     <div id="nothing" style="display: block">
-      <p align=center style="font-size: 44px;"><strong>Loading results. Please wait...</strong></p>   
+      <p align=center style="font-size: 54px;"><strong>Loading results. Please wait...</strong></p>   
     </div>
     
     <div id="everything" style="display: none">
       
-      <p align=center style="font-size: 48px;"><strong>This Year's Results</strong></p>
+      <p align=center style="font-size: 54px;"><strong>This Year's Results</strong></p>
       <p align=center style="font-size: 30px;"><i>Scroll this panel to view more rows</i></p>
      
       <table style="font-size: 48px; padding: 6px" align=center>
@@ -65,21 +65,17 @@
       </div>
       <hr>
 
-    <p align=center style="font-size: 48px;"><strong>Outright Wins</strong></p>
+    <p align=center style="font-size: 54px;"><strong>Outright Wins</strong></p>
     <canvas id="wins-donut-chart" width="600" height="400"></canvas>
     <hr>
-    <p align=center style="font-size: 48px;"><strong>Outright Losses</strong></p>
+    <p align=center style="font-size: 54px;"><strong>Outright Losses</strong></p>
     <canvas id="losses-donut-chart" width="600" height="400"></canvas>
     <hr>
-    <p align=center style="font-size: 48px;"><strong>Guess Distribution</strong></p>
+    <p align=center style="font-size: 54px;"><strong>Guess Distribution</strong></p>
     <canvas id="guesses-bar-chart" width="600" height="800"></canvas>
     <hr>
 
-    <p align=center style="font-size: 48px;"><strong>Total Guesses</strong></p>
-    <canvas id="guesses-bubble-chart" width="600" height="400"></canvas>
-    <hr>
-
-    <p align=center style="font-size: 48px;"><strong>Total Guesses</strong></p>
+    <p align=center style="font-size: 54px;"><strong>Total Guesses</strong></p>
 
    <table style="font-size: 36px; padding: 6px" align=center width=80%>
 <tr><td id="totalGuesses">
@@ -90,7 +86,7 @@
     
      <div id="newWord" style="display: none">
         
-      <p align=center style="font-size: 48px;"><strong>Add New Wordle Entry</strong></p>
+      <p align=center style="font-size: 54px;"><strong>Add New Wordle Entry</strong></p>
 
       <form id="entry-form" style="font-size: 30px;">
  
@@ -231,104 +227,9 @@ Chart.register(ChartDataLabels);
 //      console.log (chrisCount, juliaCount, nickCount);
       
     const totalGuesses = document.getElementById('totalGuesses');
-      let chrisJulia = chrisCount - juliaCount;
-      let chrisNick  = chrisCount - nickCount;
-      let juliaChris = juliaCount - chrisCount;
-      let juliaNick  = juliaCount - nickCount;
-      let nickChris  = nickCount  - chrisCount;
-      let nickJulia  = nickCount  - juliaCount;
-      let chrisJuliaText;
-      let chrisNickText;
-      let juliaChrisText;
-      let juliaNickText;
-      let nickChrisText;
-      let nickJuliaText;
 
-      if (chrisJulia == 0) {
-        chrisJuliaText = 'the same as <strong>Julia</strong>';
-      } else if (chrisJulia < 0) {
-        chrisJuliaText = '<i>'+(-chrisJulia)+'</i> better than <strong>Julia</strong>';
-      } else {
-        chrisJuliaText = '<i>'+(chrisJulia)+'</i> worse than <strong>Julia</strong>';
-      }
-
-      if (chrisNick == 0) {
-        chrisNickText = 'the same as <strong>Nick</strong>';
-      } else if (chrisNick < 0) {
-        chrisNickText = '<i>'+(-chrisNick)+'</i> better than <strong>Nick</strong>';
-      } else {
-        chrisNickText = '<i>'+(chrisNick)+'</i> worse than <strong>Nick</strong>';
-      }
-
-      if (juliaChris == 0) {
-        juliaChrisText = 'the same as <strong>Chris</strong>';
-      } else if (juliaChris < 0) {
-        juliaChrisText = '<i>'+(-juliaChris)+'</i> better than <strong>Chris</strong>';
-      } else {
-        juliaChrisText = '<i>'+(juliaChris)+'</i> worse than <strong>Chris</strong>';
-      }
-
-      if (juliaNick == 0) {
-        juliaNickText = 'the same as <strong>Nick</strong>';
-      } else if (juliaNick < 0) {
-        juliaNickText = '<i>'+(-juliaNick)+'</i> better than <strong>Nick</strong>';
-      } else {
-        juliaNickText = '<i>'+(juliaNick)+'</i> worse than <strong>Nick</strong>';
-      }
-
-      if (nickChris == 0) {
-        nickChrisText = 'the same as <strong>Chris</strong>';
-      } else if (nickChris < 0) {
-        nickChrisText = '<i>'+(-nickChris)+'</i> better than <strong>Chris</strong>';
-      } else {
-        nickChrisText = '<i>'+(nickChris)+'</i> worse than <strong>Chris</strong>';
-      }
-
-      if (nickJulia == 0) {
-        nickJuliaText = 'the same as <strong>Julia</strong>';
-      } else if (nickJulia < 0) {
-        nickJuliaText = '<i>'+(-nickJulia)+'</i> better than <strong>Julia</strong>';
-      } else {
-        nickJuliaText = '<i>'+(nickJulia)+'</i> worse than <strong>Julia</strong>';
-      }
-
-      totalGuesses.innerHTML = `<strong>Chris</strong> has made <i>${chrisCount}</i> guesses: ${chrisJuliaText}, ${chrisNickText}.<br/><br/><strong>Julia</strong> has made <i>${juliaCount}</i> guesses: ${juliaChrisText}, ${juliaNickText}.<br/><br/><strong>Nick</strong> has made <i>${nickCount}</i> guesses: ${nickChrisText}, ${nickJuliaText}.<br/><br/>`;
+    totalGuesses.innerHTML = `<strong>Chris</strong> has made <i>${chrisCount}</i> guesses.<br/><br/><strong>Julia</strong> has made <i>${juliaCount}</i> guesses.<br/><br/><strong>Nick</strong> has made <i>${nickCount}</i> guesses.<br/><br/>`;
       
- const totalsCtx = document.getElementById('guesses-bubble-chart').getContext('2d');
-const totalsData = {
-  datasets: [{
-    label: 'Dataset 1',
-    data: [
-      { x: 2000, y: 2000, r: chrisCount },
-      { x: 4000, y: 2000, r: juliaCount },
-      { x: 6000, y: 2000,  r: nickCount }
-    ],
-    backgroundColor: 'rgba(54, 162, 235, 0.6)'
-  }]
-};
-
-const totalsConfig = {
-  type: 'bubble',
-  data: totalsData,
-  options: {
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: 'X Axis'
-        }
-      },
-      y: {
-        title: {
-          display: true,
-          text: 'Y Axis'
-        }
-      }
-    }
-  }
-};
-
-const totalsBubbleChart = new Chart(totalsCtx, totalsConfig);
       // const container = document.getElementById('scrollTable');
       
   //container.scrollTop = container.scrollHeight;
