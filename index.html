@@ -562,7 +562,7 @@ Chart.register(ChartDataLabels);
       const Julia = entryForm.julia.value;
       const Nick = entryForm.nick.value;
 
-      await fetch('https://sheetdb.io/api/v1/fxv69jnm5s4f6/rows?sheet=2025', {
+      await fetch('https://sheetdb.io/api/v1/fxv69jnm5s4f6?sheet=2025', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify([{ TheDate, TheWord, Chris, Julia, Nick }])
