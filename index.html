@@ -600,7 +600,9 @@ Chart.register(ChartDataLabels);
         //}
       }); //data.forEach
 
-    } //async function fetchDataAndUpdateUI
+       const container2 = document.getElementById('scrollTable2');
+      container2.scrollTop = container.scrollHeight;
+   } //async function fetchDataAndUpdateUI
       
 
     entryForm.onsubmit = async (e) => {
