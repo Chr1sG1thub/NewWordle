@@ -109,9 +109,24 @@
 
     </form>
     <hr>
-      </div>
+      </div> <!-- id="newWord" -->
 
-  </div>
+      <br/><p align=center style="font-size: 54px;"><strong><i>This Year's Results</i></strong></p>
+      <p align=center style="font-size: 30px;"><i>Scroll this panel to view more rows</i></p>
+     
+      <table style="font-size: 48px; padding: 6px" align=center>
+        <thead><tr><th align=center width=300px style="border: none">Date</th><th align=left width=150px style="border: none">Word</th><th align=center width=120px style="border: none">Chris</th><th align=center width=120px style="border: none">Julia</th><th align=center width=120px style="border: none">Nick</th></tr></thead>
+      </table>
+      
+       <div class="table-container" id="scrollTable2">
+
+      <table style="font-size: 48px; padding: 6px" align=center>
+        <tbody id="table-body2"></tbody>
+      </table>
+      </div>
+      <hr>
+
+  </div> <!-- id="everything" -->
     
 
   <script>
@@ -554,6 +569,40 @@ Chart.register(ChartDataLabels);
 
     } //async function fetchDataAndUpdateUI
       
+      const response2 = fetch('https://script.google.com/macros/s/AKfycbzaH1euvAcQ3j-xP0R6BBOpvvy4-b7AygK2jEp0MJEfcdgpanuyQ6-2Nl0f3fT9rLpF/exec?sheet=Previous');
+      const data2 = await response2.json();
+
+      tableBody2.innerHTML = '';
+      let indx = 0;
+        
+      data.forEach(myRow => {
+
+        chrisBG = "white";
+        juliaBG = "white";
+        nickBG = "white";
+          
+        if (myRow.Chris < myRow.Julia && myRow.Chris < myRow.Nick) {
+          chrisBG = "lightgreen";
+        } else if (myRow.Julia < myRow.Chris && myRow.Julia < myRow.Nick) {
+          juliaBG = "lightgreen";
+        } else if (myRow.Nick < myRow.Chris && myRow.Nick < myRow.Julia) {
+          nickBG = "lightgreen";
+        }
+
+        if (myRow.Chris > myRow.Julia && myRow.Chris > myRow.Nick) {
+          chrisBG = "lightpink";
+        } else if (myRow.Julia > myRow.Chris && myRow.Julia > myRow.Nick) {
+          juliaBG = "lightpink";
+        } else if (myRow.Nick > myRow.Chris && myRow.Nick > myRow.Julia) {
+          nickBG = "lightpink";
+        }
+
+        //if (indx >= (data.length - 10)) {
+          tableBody2.innerHTML += `<tr><td  width=300px style="border: none" align='center'>${myRow["TheDate"]}</td><td width=150px style="border: none" align='left'>${myRow["TheWord"]}</td><td width=120px align='center' style='border: none; background-color: ${chrisBG}'>${myRow["Chris"]}</td><td width=120px align='center' style='border: none; background-color: ${juliaBG}'>${myRow["Julia"]}</td><td width=120px align='center' style='border: none; background-color: ${nickBG}'>${myRow["Nick"]}</td></tr>`;
+        //}
+        indx = indx + 1;
+      }); //data.forEach
+
     entryForm.onsubmit = async (e) => {
       e.preventDefault();
       const TheDate = entryForm.thedate.value;
