@@ -9023,5 +9023,3 @@ const allData = [
     "Nick": 4
   }
   ];
-
-export {allData};
