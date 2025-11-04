@@ -9022,5 +9022,6 @@ const allData = [
     "Julia": 5,
     "Nick": 4
   }
-  ]
-]
+  ];
+
+export {allData};
