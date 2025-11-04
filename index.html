@@ -568,10 +568,11 @@ Chart.register(ChartDataLabels);
 
          tableBody2.innerHTML = '';
  
-      const prev = await fetch('previous.json');
-      const words = await prev.json();
-   
-      words.forEach(myRow => {
+//      const prev = await fetch('previous.json');
+//      const words = await prev.json();
+  import { allData } from './previous.js';
+ 
+      allData.forEach(myRow => {
       
         chrisBG = "white";
         juliaBG = "white";
