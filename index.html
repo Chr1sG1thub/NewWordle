@@ -562,8 +562,6 @@ Chart.register(ChartDataLabels);
         guessesChart = new Chart(guessesBarChartCtx, guessesConfig); //new Chart            
       } //if (guessesChart)
         
-      document.getElementById("nothing").style.display = 'none';
-      document.getElementById("everything").style.display = 'block';
  
       const container = document.getElementById('scrollTable');
       container.scrollTop = container.scrollHeight;
@@ -604,6 +602,9 @@ Chart.register(ChartDataLabels);
 
        const container2 = document.getElementById('scrollTable2');
       container2.scrollTop = container2.scrollHeight;
+
+       document.getElementById("nothing").style.display = 'none';
+      document.getElementById("everything").style.display = 'block';
 
     } //async function fetchDataAndUpdateUI
       
