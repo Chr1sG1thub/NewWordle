@@ -111,7 +111,7 @@
     <hr>
       </div> <!-- id="newWord" -->
 
-      <br/><p align=center style="font-size: 54px;"><strong><i>This Year's Results</i></strong></p>
+      <br/><p align=center style="font-size: 54px;"><strong><i>Previous Results</i></strong></p>
       <p align=center style="font-size: 30px;"><i>Scroll this panel to view more rows</i></p>
      
       <table style="font-size: 48px; padding: 6px" align=center>
@@ -154,7 +154,8 @@ Chart.register(ChartDataLabels);
 
     const entryForm = document.getElementById('entry-form');
     const tableBody = document.getElementById('table-body');
-      
+    const tableBody2 = document.getElementById('table-body2');
+     
     const winDonutChartCtx = document.getElementById('wins-donut-chart').getContext('2d');
     const lossesDonutChartCtx = document.getElementById('losses-donut-chart').getContext('2d');
     const guessesBarChartCtx = document.getElementById('guesses-bar-chart').getContext('2d');
@@ -570,7 +571,7 @@ Chart.register(ChartDataLabels);
       const response2 = await fetch('https://script.google.com/macros/s/AKfycbzaH1euvAcQ3j-xP0R6BBOpvvy4-b7AygK2jEp0MJEfcdgpanuyQ6-2Nl0f3fT9rLpF/exec?sheet=Previous');
       const data2 = await response2.json();
 
-      tableBody2.innerHTML = '';
+       tableBody2.innerHTML = '';
         
       data2.forEach(myRow => {
 
