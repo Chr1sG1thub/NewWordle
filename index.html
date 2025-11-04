@@ -570,7 +570,7 @@ Chart.register(ChartDataLabels);
     } //async function fetchDataAndUpdateUI
       
       const response2 = fetch('https://script.google.com/macros/s/AKfycbzaH1euvAcQ3j-xP0R6BBOpvvy4-b7AygK2jEp0MJEfcdgpanuyQ6-2Nl0f3fT9rLpF/exec?sheet=Previous');
-      const data2 = await response2.json();
+      const data2 = response2.json();
 
       tableBody2.innerHTML = '';
       let indx = 0;
