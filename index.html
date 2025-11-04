@@ -568,13 +568,13 @@ Chart.register(ChartDataLabels);
       const container = document.getElementById('scrollTable');
       container.scrollTop = container.scrollHeight;
 
-      const response2 = await fetch('https://script.google.com/macros/s/AKfycbzaH1euvAcQ3j-xP0R6BBOpvvy4-b7AygK2jEp0MJEfcdgpanuyQ6-2Nl0f3fT9rLpF/exec?sheet=Previous');
-      const data2 = await response2.json();
-
        tableBody2.innerHTML = '';
-        
-      data2.forEach(myRow => {
-
+ 
+      fetch('previous.json')
+    .then(response2 => response.json())
+    .then(words => {
+      words.forEach(myRow => {
+      
         chrisBG = "white";
         juliaBG = "white";
         nickBG = "white";
