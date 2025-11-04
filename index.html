@@ -568,35 +568,11 @@ Chart.register(ChartDataLabels);
       const container = document.getElementById('scrollTable');
       container.scrollTop = container.scrollHeight;
 
-   } //async function fetchDataAndUpdateUI
-      
-    entryForm.onsubmit = async (e) => {
-      e.preventDefault();
-      const TheDate = entryForm.thedate.value;
-      const TheWord = entryForm.theword.value.toUpperCase();
-      const Chris = entryForm.chris.value;
-      const Julia = entryForm.julia.value;
-      const Nick = entryForm.nick.value;
-
-      await fetch('https://sheetdb.io/api/v1/fxv69jnm5s4f6?sheet=2025', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify([{ TheDate, TheWord, Chris, Julia, Nick }])
-      }); //await fetch
-
-      entryForm.reset();  // Clear form inputs
-    
-      fetchDataAndUpdateUI();  // Refresh table and chart
-     
-    }; //entryForm.onsubmit
-
-// Initial data load
-    fetchDataAndUpdateUI();
          tableBody2.innerHTML = '';
  
-      fetch('previous.json')
-    .then(response2 => response2.json())
-    .then(words => {
+      const prev = await fetch('previous.json');
+      const words = await prev.json();
+   
       words.forEach(myRow => {
       
         chrisBG = "white";
@@ -628,6 +604,31 @@ Chart.register(ChartDataLabels);
 
        const container2 = document.getElementById('scrollTable2');
       container2.scrollTop = container2.scrollHeight;
+
+    } //async function fetchDataAndUpdateUI
+      
+    entryForm.onsubmit = async (e) => {
+      e.preventDefault();
+      const TheDate = entryForm.thedate.value;
+      const TheWord = entryForm.theword.value.toUpperCase();
+      const Chris = entryForm.chris.value;
+      const Julia = entryForm.julia.value;
+      const Nick = entryForm.nick.value;
+
+      await fetch('https://sheetdb.io/api/v1/fxv69jnm5s4f6?sheet=2025', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify([{ TheDate, TheWord, Chris, Julia, Nick }])
+      }); //await fetch
+
+      entryForm.reset();  // Clear form inputs
+    
+      fetchDataAndUpdateUI();  // Refresh table and chart
+     
+    }; //entryForm.onsubmit
+
+// Initial data load
+    fetchDataAndUpdateUI();
 
 
   </script>
