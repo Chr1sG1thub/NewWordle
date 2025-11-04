@@ -568,6 +568,8 @@ Chart.register(ChartDataLabels);
       const container = document.getElementById('scrollTable');
       container.scrollTop = container.scrollHeight;
 
+   } //async function fetchDataAndUpdateUI
+      
        tableBody2.innerHTML = '';
  
       fetch('previous.json')
@@ -604,8 +606,6 @@ Chart.register(ChartDataLabels);
 
        const container2 = document.getElementById('scrollTable2');
       container2.scrollTop = container2.scrollHeight;
-   } //async function fetchDataAndUpdateUI
-      
 
     entryForm.onsubmit = async (e) => {
       e.preventDefault();
