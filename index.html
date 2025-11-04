@@ -571,7 +571,7 @@ Chart.register(ChartDataLabels);
        tableBody2.innerHTML = '';
  
       fetch('previous.json')
-    .then(response2 => response.json())
+    .then(response2 => response2.json())
     .then(words => {
       words.forEach(myRow => {
       
