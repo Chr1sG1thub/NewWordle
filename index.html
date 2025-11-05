@@ -577,7 +577,7 @@ Chart.register(ChartDataLabels);
        document.getElementById("nothing").style.display = 'none';
       document.getElementById("everything").style.display = 'block';
 
-      const ROW_HEIGHT = 70; // Adjust based on your row height
+      const ROW_HEIGHT = 60; // Adjust based on your row height
       const BUFFER_SIZE = 10; // Extra rows to render above/below viewport
 
       function loadData() {
@@ -667,8 +667,7 @@ function renderVisibleRows() {
 function scrollToBottom() {
   const container2 = document.getElementById('scrollTable2');
   // Scroll to the very bottom
-  //container2.scrollTop = container2.scrollHeight;
-  container2.scrollTop = 51560;
+  container2.scrollTop = container2.scrollHeight;
 }
 
 // Call on page load
