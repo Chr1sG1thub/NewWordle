@@ -571,14 +571,84 @@ Chart.register(ChartDataLabels);
         guessesChart = new Chart(guessesBarChartCtx, guessesConfig); //new Chart            
       } //if (guessesChart)
         
- 
+const ROW_HEIGHT = 40; // Adjust based on your row height
+const BUFFER_SIZE = 10; // Extra rows to render above/below viewport
 
-         tableBody2.innerHTML = '';
+function loadData() {
+  // Initialize virtual scrolling
+  initVirtualScroll();
+  
+  // Scroll to bottom to show latest records
+  scrollToBottom();
+}
+
+function initVirtualScroll() {
+  const container2 = document.getElementById('scrollTable2');
+  const tbody2 = document.getElementById('tableBody2');
+//  const spacer = document.getElementById('spacer');
+  
+  // Set spacer height to represent total data height
+//  spacer.style.height = `${allData.length * ROW_HEIGHT}px`;
+  
+  // Initial render
+  renderVisibleRows();
+  
+  // Re-render on scroll
+  container2.addEventListener('scroll', renderVisibleRows);
+}
+
+function renderVisibleRows() {
+  const container2 = document.getElementById('scrollTable2');
+  const tbody2 = document.getElementById('tableBody2');
+  
+  const scrollTop = container2.scrollTop;
+  const viewportHeight = container2.clientHeight;
+  
+  // Calculate which rows should be visible
+  const startIndex = Math.max(0, Math.floor(scrollTop / ROW_HEIGHT) - BUFFER_SIZE);
+  const endIndex = Math.min(
+    allData.length,
+    Math.ceil((scrollTop + viewportHeight) / ROW_HEIGHT) + BUFFER_SIZE
+  );
+  
+  // Clear tbody
+  tbody2.innerHTML = '';
+  
+  // Add offset to position rows correctly
+  tbody2.style.transform = `translateY(${startIndex * ROW_HEIGHT}px)`;
+  
+  // Render only visible rows
+  for (let i = startIndex; i < endIndex; i++) {
+    const row = allData[i];
+    const tr = document.createElement('tr');
+    tr.style.height = `${ROW_HEIGHT}px`;
+    
+    // Adjust to match your data structure
+    tr.innerHTML = `
+      <td>${row.TheDate}</td>
+      <td>${row.TheWord}</td>
+    `;
+    
+    tbody2.appendChild(tr);
+  }
+}
+
+function scrollToBottom() {
+  const container2 = document.getElementById('scrollTable2');
+  // Scroll to the very bottom
+  container2.scrollTop = container2.scrollHeight;
+}
+
+// Call on page load
+loadData();
+
+
+//         tableBody2.innerHTML = '';
  
 //      const prev = await fetch('previous.json');
 //      const words = await prev.json();
  
-      allData.forEach(myRow => {
+//      allData.forEach(myRow => {
       
   //      chrisBG = "white";
   //      juliaBG = "white";
@@ -604,9 +674,9 @@ Chart.register(ChartDataLabels);
 
         //if (indx >= (data.length - 10)) {
 //          tableBody2.innerHTML += `<tr><td  width=300px style="border: none" align='center'>${myRow["TheDate"]}</td><td width=150px style="border: none" align='left'>${myRow["TheWord"]}</td><td width=120px align='center' style='border: none; background-color: ${chrisBG}'>${myRow["Chris"]}</td><td width=120px align='center' style='border: none; background-color: ${juliaBG}'>${myRow["Julia"]}</td><td width=120px align='center' style='border: none; background-color: ${nickBG}'>${myRow["Nick"]}</td></tr>`;
-          tableBody2.innerHTML += `<tr><td  width=300px style="border: none" align='center'>${myRow["TheDate"]}</td><td width=150px style="border: none" align='left'>${myRow["TheWord"]}</td></tr>`;
+ //         tableBody2.innerHTML += `<tr><td  width=300px style="border: none" align='center'>${myRow["TheDate"]}</td><td width=150px style="border: none" align='left'>${myRow["TheWord"]}</td></tr>`;
         //}
-      }); //words.forEach
+ //     }); //words.forEach
 
 
        document.getElementById("nothing").style.display = 'none';
@@ -614,8 +684,8 @@ Chart.register(ChartDataLabels);
 
       const container = document.getElementById('scrollTable');
       container.scrollTop = container.scrollHeight;
-       const container2 = document.getElementById('scrollTable2');
-      container2.scrollTop = container2.scrollHeight;
+ //      const container2 = document.getElementById('scrollTable2');
+  //    container2.scrollTop = container2.scrollHeight;
 
     } //async function fetchDataAndUpdateUI
       
