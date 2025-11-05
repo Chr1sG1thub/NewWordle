@@ -12,8 +12,9 @@
     </style>
     <style>
       .table-container {
-      height: 610px;              /* enough for ~10 rows */
-      overflow-y: scroll;         /* vertical scrollbar */
+      height: 600px;              /* enough for ~10 rows */
+      overflow-y: auto;         /* vertical scrollbar */
+      position: relative;
       display: block;
       border: 1px solid #ccc;
       margin: auto;
@@ -131,7 +132,8 @@
       <table style="font-size: 48px; padding: 6px" align=center>
         <tbody id="table-body2"></tbody>
       </table>
-      </div>
+     <div id="spacer" style="height: 0;"></div>
+   </div>
       <hr>
       <hr>
 
@@ -592,7 +594,7 @@ function initVirtualScroll() {
 //  const spacer = document.getElementById('spacer');
   
   // Set spacer height to represent total data height
-//  spacer.style.height = `${allData.length * ROW_HEIGHT}px`;
+  spacer.style.height = `${allData.length * ROW_HEIGHT}px`;
   
   // Initial render
   renderVisibleRows();
