@@ -122,7 +122,8 @@
       <p align=center style="font-size: 30px;"><i>Scroll this panel to view more rows</i></p>
      
       <table style="font-size: 48px; padding: 6px" align=center>
-        <thead><tr><th align=center width=300px style="border: none">Date</th><th align=left width=150px style="border: none">Word</th></tr></thead>
+        <thead><tr><th align=center width=300px style="border: none">Date</th><th align=left width=150px style="border: none">Word</th>      <th width=120px align='center' style='border: none;'>Chris</th><th width=120px align='center' style='border: none;'>Julia</th><th width=120px align='center' style='border: none;'>Nick</th>
+</tr></thead>
       </table>
       
        <div class="table-container" id="scrollTable2">
@@ -626,10 +627,35 @@ function renderVisibleRows() {
     const tr = document.createElement('tr');
     tr.style.height = `${ROW_HEIGHT}px`;
     
-    // Adjust to match your data structure
+            chrisBG = "white";
+        juliaBG = "white";
+       nickBG = "white";
+          
+        if (myRow.Chris != "-") {
+          if (myRow.Chris < myRow.Julia && myRow.Chris < myRow.Nick) {
+         chrisBG = "lightgreen";
+       } else if (myRow.Julia < myRow.Chris && myRow.Julia < myRow.Nick) {
+          juliaBG = "lightgreen";
+        } else if (myRow.Nick < myRow.Chris && myRow.Nick < myRow.Julia) {
+         nickBG = "lightgreen";
+        }
+
+       if (myRow.Chris > myRow.Julia && myRow.Chris > myRow.Nick) {
+          chrisBG = "lightpink";
+        } else if (myRow.Julia > myRow.Chris && myRow.Julia > myRow.Nick) {
+          juliaBG = "lightpink";
+        } else if (myRow.Nick > myRow.Chris && myRow.Nick > myRow.Julia) {
+         nickBG = "lightpink";
+        }
+        } //(myRow.Chris != "-")
+
+// Adjust to match your data structure
     tr.innerHTML = `
-      <td>${row.TheDate}</td>
-      <td>${row.TheWord}</td>
+      <td width=300px style="border: none" align='center'>${row.TheDate}</td>
+      <td width=300px style="border: none" align='center'>${row.TheWord}</td>
+      <td width=120px align='center' style='border: none; background-color: ${chrisBG}'>${myRow["Chris"]}</td>
+      <td width=120px align='center' style='border: none; background-color: ${juliaBG}'>${myRow["Julia"]}</td>
+      <td width=120px align='center' style='border: none; background-color: ${nickBG}'>${myRow["Nick"]}</td>
     `;
     
     tbody2.appendChild(tr);
