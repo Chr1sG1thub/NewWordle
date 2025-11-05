@@ -631,23 +631,23 @@ function renderVisibleRows() {
         juliaBG = "white";
        nickBG = "white";
           
-        if (myRow.Chris != "-") {
-          if (myRow.Chris < myRow.Julia && myRow.Chris < myRow.Nick) {
+        if (row.Chris != "-") {
+          if (row.Chris < row.Julia && row.Chris < row.Nick) {
          chrisBG = "lightgreen";
-       } else if (myRow.Julia < myRow.Chris && myRow.Julia < myRow.Nick) {
+       } else if (row.Julia < row.Chris && row.Julia < row.Nick) {
           juliaBG = "lightgreen";
-        } else if (myRow.Nick < myRow.Chris && myRow.Nick < myRow.Julia) {
+        } else if (row.Nick < row.Chris && row.Nick < row.Julia) {
          nickBG = "lightgreen";
         }
 
-       if (myRow.Chris > myRow.Julia && myRow.Chris > myRow.Nick) {
+       if (row.Chris > row.Julia && row.Chris > row.Nick) {
           chrisBG = "lightpink";
-        } else if (myRow.Julia > myRow.Chris && myRow.Julia > myRow.Nick) {
+        } else if (row.Julia > row.Chris && row.Julia > row.Nick) {
           juliaBG = "lightpink";
-        } else if (myRow.Nick > myRow.Chris && myRow.Nick > myRow.Julia) {
+        } else if (row.Nick > row.Chris && row.Nick > row.Julia) {
          nickBG = "lightpink";
         }
-        } //(myRow.Chris != "-")
+        } //(row.Chris != "-")
 
 // Adjust to match your data structure
     tr.innerHTML = `
