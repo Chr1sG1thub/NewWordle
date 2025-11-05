@@ -571,7 +571,10 @@ Chart.register(ChartDataLabels);
         guessesChart = new Chart(guessesBarChartCtx, guessesConfig); //new Chart            
       } //if (guessesChart)
         
-const ROW_HEIGHT = 40; // Adjust based on your row height
+       document.getElementById("nothing").style.display = 'none';
+      document.getElementById("everything").style.display = 'block';
+
+      const ROW_HEIGHT = 40; // Adjust based on your row height
 const BUFFER_SIZE = 10; // Extra rows to render above/below viewport
 
 function loadData() {
@@ -679,8 +682,6 @@ loadData();
  //     }); //words.forEach
 
 
-       document.getElementById("nothing").style.display = 'none';
-      document.getElementById("everything").style.display = 'block';
 
       const container = document.getElementById('scrollTable');
       container.scrollTop = container.scrollHeight;
