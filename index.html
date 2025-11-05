@@ -584,7 +584,7 @@ function loadData() {
 
 function initVirtualScroll() {
   const container2 = document.getElementById('scrollTable2');
-  const tbody2 = document.getElementById('tableBody2');
+  const tbody2 = document.getElementById('table-body2');
 //  const spacer = document.getElementById('spacer');
   
   // Set spacer height to represent total data height
@@ -599,7 +599,7 @@ function initVirtualScroll() {
 
 function renderVisibleRows() {
   const container2 = document.getElementById('scrollTable2');
-  const tbody2 = document.getElementById('tableBody2');
+  const tbody2 = document.getElementById('table-body2');
   
   const scrollTop = container2.scrollTop;
   const viewportHeight = container2.clientHeight;
@@ -612,7 +612,6 @@ function renderVisibleRows() {
   );
   
   // Clear tbody
-  const tbody2 = document.getElementById('tableBody2');
   tbody2.innerHTML = '';
   
   // Add offset to position rows correctly
