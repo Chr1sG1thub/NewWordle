@@ -653,9 +653,9 @@ function renderVisibleRows() {
     tr.innerHTML = `
       <td width=300px style="border: none" align='center'>${row.TheDate}</td>
       <td width=300px style="border: none" align='center'>${row.TheWord}</td>
-      <td width=120px align='center' style='border: none; background-color: ${chrisBG}'>${myRow["Chris"]}</td>
-      <td width=120px align='center' style='border: none; background-color: ${juliaBG}'>${myRow["Julia"]}</td>
-      <td width=120px align='center' style='border: none; background-color: ${nickBG}'>${myRow["Nick"]}</td>
+      <td width=120px align='center' style='border: none; background-color: ${chrisBG}'>${row["Chris"]}</td>
+      <td width=120px align='center' style='border: none; background-color: ${juliaBG}'>${row["Julia"]}</td>
+      <td width=120px align='center' style='border: none; background-color: ${nickBG}'>${row["Nick"]}</td>
     `;
     
     tbody2.appendChild(tr);
