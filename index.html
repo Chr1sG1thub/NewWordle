@@ -604,7 +604,7 @@ function initVirtualScroll() {
   // Re-render on scroll
 let isThrottled = false;
 
-container.addEventListener('scroll', () => {
+container2.addEventListener('scroll', () => {
   if (!isThrottled) {
     renderVisibleRows();
     isThrottled = true;
