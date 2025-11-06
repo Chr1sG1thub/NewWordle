@@ -62,9 +62,11 @@
        <div class="table-container" id="scrollTable">
 
       <table style="font-size: 48px; padding: 6px" align=center>
-        <tbody id="table-body"></tbody>
+        <tbody id="table-body2"></tbody>
       </table>
-      </div>
+     <div id="spacer" style="height: 0;"></div>
+   </div>
+
       <hr>
       <hr>
 
@@ -132,7 +134,7 @@
       <table style="font-size: 48px; padding: 6px" align=center>
         <tbody id="table-body2"></tbody>
       </table>
-     <div id="spacer" style="height: 0;"></div>
+     <div id="spacer2" style="height: 0;"></div>
    </div>
       <hr>
       <hr>
@@ -577,7 +579,7 @@ Chart.register(ChartDataLabels);
        document.getElementById("nothing").style.display = 'none';
       document.getElementById("everything").style.display = 'block';
 
-      let ignoreScrollEvent = false;
+      //let ignoreScrollEvent = false;
 
       const ROW_HEIGHT = 60; // Adjust based on your row height
       const BUFFER_SIZE = 10; // Extra rows to render above/below viewport
@@ -593,10 +595,10 @@ Chart.register(ChartDataLabels);
 function initVirtualScroll() {
   const container2 = document.getElementById('scrollTable2');
   const tbody2 = document.getElementById('table-body2');
-  const spacer = document.getElementById('spacer');
+  const spacer2 = document.getElementById('spacer2');
   
   // Set spacer height to represent total data height
-  spacer.style.height = `${(allData.length-10) * ROW_HEIGHT}px`;
+  spacer2.style.height = `${(allData.length-10) * ROW_HEIGHT}px`;
   
   // Initial render
   renderVisibleRows();
