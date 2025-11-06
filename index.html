@@ -602,10 +602,18 @@ function initVirtualScroll() {
   renderVisibleRows();
   
   // Re-render on scroll
-container2.addEventListener('scroll', () => {
-  if (ignoreScrollEvent) return;
-  renderVisibleRows();
+let isThrottled = false;
+
+container.addEventListener('scroll', () => {
+  if (!isThrottled) {
+    renderVisibleRows();
+    isThrottled = true;
+    setTimeout(() => {
+      isThrottled = false;
+    }, 50); // adjust delay as needed
+  }
 });
+
   
 }
 
