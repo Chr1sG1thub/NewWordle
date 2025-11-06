@@ -676,8 +676,12 @@ function renderVisibleRows() {
 
 function scrollToBottom() {
   const container2 = document.getElementById('scrollTable2');
+  
+    ignoreScrollEvent = true;
   // Scroll to the very bottom
   container2.scrollTop = container2.scrollHeight-600;
+      ignoreScrollEvent = false;
+
 }
 
 // Call on page load
