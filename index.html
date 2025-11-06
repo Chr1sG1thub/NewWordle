@@ -577,6 +577,8 @@ Chart.register(ChartDataLabels);
        document.getElementById("nothing").style.display = 'none';
       document.getElementById("everything").style.display = 'block';
 
+      let ignoreScrollEvent = false;
+
       const ROW_HEIGHT = 60; // Adjust based on your row height
       const BUFFER_SIZE = 10; // Extra rows to render above/below viewport
 
@@ -600,7 +602,11 @@ function initVirtualScroll() {
   renderVisibleRows();
   
   // Re-render on scroll
-  container2.addEventListener('scroll', renderVisibleRows);
+container2.addEventListener('scroll', () => {
+  if (ignoreScrollEvent) return;
+  renderVisibleRows();
+});
+  
 }
 
 function renderVisibleRows() {
@@ -620,8 +626,12 @@ function renderVisibleRows() {
   // Clear tbody
   tbody2.innerHTML = '';
   
-  // Add offset to position rows correctly
+    ignoreScrollEvent = true;
+// Add offset to position rows correctly
   tbody2.style.transform = `translateY(${startIndex * ROW_HEIGHT}px)`;
+
+    ignoreScrollEvent = false;
+
   
   // Render only visible rows
   for (let i = startIndex; i < endIndex; i++) {
