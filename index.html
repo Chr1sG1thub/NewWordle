@@ -594,7 +594,7 @@ function initVirtualScroll() {
   const spacer = document.getElementById('spacer');
   
   // Set spacer height to represent total data height
-  spacer.style.height = `${allData.length * ROW_HEIGHT}px`;
+  spacer.style.height = `${(allData.length-10) * ROW_HEIGHT}px`;
   
   // Initial render
   renderVisibleRows();
