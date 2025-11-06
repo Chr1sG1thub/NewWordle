@@ -122,18 +122,34 @@
       <br/><p align=center style="font-size: 54px; color: blue;"><strong><i>Previous Results</i></strong></p>
       <p align=center style="font-size: 30px;"><i>Scroll this panel to view more rows</i></p>
      
-      <table style="font-size: 48px; padding: 6px" align=center>
+ <!--        <table style="font-size: 48px; padding: 6px" align=center>
         <thead><tr><th align=center width=300px style="border: none">Date</th><th align=left width=150px style="border: none">Word</th>      <th width=120px align='center' style='border: none;'>Chris</th><th width=120px align='center' style='border: none;'>Julia</th><th width=120px align='center' style='border: none;'>Nick</th>
 </tr></thead>
       </table>
       
-       <div class="table-container" id="scrollTable2">
+    <div class="table-container" id="scrollTable2">
 
       <table style="font-size: 48px; padding: 6px" align=center>
         <tbody id="table-body2"></tbody>
       </table>
      <div id="spacer" style="height: 0;"></div>
-   </div>
+   </div> -->
+<div id="scrollTable2" style="height: 600px; overflow-y: auto; position: relative;">
+  <table>
+    <thead style="position: sticky; top: 0; background: var(--color-surface); z-index: 10;">
+      <tr>
+        <th>Date</th>
+        <th>Word</th>
+        <th>Chris</th>
+        <th>Julia</th>
+        <th>Nick</th>
+        <!-- Add your column headers -->
+      </tr>
+    </thead>
+    <tbody id="table-body2"></tbody>
+  </table>
+  <div id="spacer" style="height: 0;"></div>
+</div>
       <hr>
       <hr>
 
