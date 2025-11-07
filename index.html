@@ -145,7 +145,18 @@
 
   <script>
 
-if (!(/iPhone/.test(navigator.userAgent))) {
+const userAgent = navigator.userAgent;
+
+// Check for "Mobi" anywhere in the user agent
+const isMobile = /Mobi/i.test(userAgent);
+
+if (isMobile) {
+    console.log("User is on mobile browser");
+} else {
+    console.log("User is on desktop browser");
+}
+
+    if (!(/iPhone/.test(navigator.userAgent))) {
   document.getElementById('newWord').style.display = 'block';
 }
 
