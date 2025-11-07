@@ -394,10 +394,10 @@ Chart.register(ChartDataLabels);
       } else {
         lossesChart = new Chart(lossesDonutChartCtx, {
           type: 'doughnut',
-          cutout: 10%,
           data: lossesData,
           options: {
-            plugins: {
+            cutout: 10%,
+          plugins: {
   datalabels: {
       anchor: 'center',      // position of label relative to bar segment
       align: 'center',       // alignment of label inside segment
