@@ -271,9 +271,9 @@ Chart.register(ChartDataLabels);
           noOneLosses = noOneLosses + 1;
         }
 
-        if (myRow.Chris == 7) {chrisBG = "#ffed4d"};
-        if (myRow.Julia == 7) {juliaBG = "#ffed4d"};
-        if (myRow.Nick  == 7) {nickBG =  "#ffed4d"};
+        if (myRow.Chris == 7) {chrisBG = "#fff280"};
+        if (myRow.Julia == 7) {juliaBG = "#fff280"};
+        if (myRow.Nick  == 7) {nickBG =  "#fff280"};
                                
 
         //if (indx >= (data.length - 10)) {
@@ -314,7 +314,7 @@ Chart.register(ChartDataLabels);
             'lightblue',
             'lightpink',
             'lightgreen',
-            '#ffed4d'
+            '#fff280'
           ], //backgroundColor
           hoverOffset: 4
         }] //datasets
@@ -334,7 +334,7 @@ Chart.register(ChartDataLabels);
             'lightblue',
             'lightpink',
             'lightgreen',
-            '#ffed4d'
+            '#fff280'
           ], //backgroundColor
           hoverOffset: 4
         }] //datasets
@@ -555,7 +555,7 @@ Chart.register(ChartDataLabels);
    //             } //footerFont
               } //tooltip
        }, //plugins
-          responsive: true,
+          responsive: false,
           scales: {
             x: {
               stacked: true,
@@ -699,9 +699,9 @@ function renderVisibleRows() {
         } else if (row.Nick > row.Chris && row.Nick > row.Julia) {
          nickBG = "lightpink";
         }
-        if (row.Chris == 7) {chrisBG = "#ffed4d"};
-        if (row.Julia == 7) {juliaBG = "#ffed4d"};
-        if (row.Nick  == 7) {nickBG =  "#ffed4d"};
+        if (row.Chris == 7) {chrisBG = "#fff280"};
+        if (row.Julia == 7) {juliaBG = "#fff280"};
+        if (row.Nick  == 7) {nickBG =  "#fff280"};
       } //(row.Chris != "-")
 
 // Adjust to match your data structure
