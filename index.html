@@ -179,8 +179,8 @@ Chart.register(ChartDataLabels);
     
     const today = new Date();
  
-    const dd = today.getDate();
-    const mm = today.getMonth() + 1; // Months are zero-based
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; // Months are zero-based
     const yyyy = today.getFullYear();
 
     dd = dd < 10 ? '0' + dd : dd;
