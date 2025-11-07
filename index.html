@@ -72,21 +72,21 @@
 
     <p align=center style="font-size: 54px; color: blue;"><strong><i>Outright Wins</i></strong></p>
     <div id = "wins-div" align="center">
-<canvas id="wins-donut-chart"></canvas>
+<canvas id="wins-donut-chart" align="center"></canvas>
     </div>
       <hr>
     <hr>
     <p align=center style="font-size: 54px; color: blue;"><strong><i>Outright Losses</i></strong></p>
     <div id = "losses-div" align="center">
-    <canvas id="losses-donut-chart"></canvas>
+    <canvas id="losses-donut-chart" align="center"></canvas>
     </div>
       <hr>
     <hr>
       
     <p align=center style="font-size: 54px; color: blue;"><strong><i>Guess Distribution</i></strong></p>
     <div id = "guesses-div" align="center">
-    <canvas id="guesses-bar-chart"></canvas>
-     <div>
+    <canvas id="guesses-bar-chart" align="center"></canvas>
+    </div>
        <hr>
     <hr>
 
@@ -160,7 +160,7 @@ const isMobile = /Mobi/i.test(userAgent);
 if (isMobile) {
   document.getElementById('wins-div').style.width = '95%';
   document.getElementById('losses-div').style.width = '95%';
-  document.getElementById('guesses-div').style.width = '55%';
+  //document.getElementById('guesses-div').style.width = '55%';
   document.getElementById('guesses-div').style.height = '95%';
 } else {
   document.getElementById('wins-div').style.height = '80%';
