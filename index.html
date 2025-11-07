@@ -71,18 +71,22 @@
       <hr>
 
     <p align=center style="font-size: 54px; color: blue;"><strong><i>Outright Wins</i></strong></p>
-    <div style="position: relative; height: 80%;">
+    <div id = "wins-div" align=center">
 <canvas id="wins-donut-chart"></canvas>
     </div>
       <hr>
     <hr>
     <p align=center style="font-size: 54px; color: blue;"><strong><i>Outright Losses</i></strong></p>
+    <div id = "losses-div" align=center">
     <canvas id="losses-donut-chart"></canvas>
+    </div>
       <hr>
     <hr>
     <p align=center style="font-size: 54px; color: blue;"><strong><i>Guess Distribution</i></strong></p>
+    <div id = "guesses-div" align=center">
     <canvas id="guesses-bar-chart"></canvas>
-      <hr>
+     <div>
+       <hr>
     <hr>
 
     <p align=center style="font-size: 54px; color: blue;"><strong><i>Total Guesses</i></strong></p>
@@ -153,12 +157,12 @@ const userAgent = navigator.userAgent;
 const isMobile = /Mobi/i.test(userAgent);
 
 if (isMobile) {
-    console.log("User is on mobile browser");
+  document.getElementById('wins-div').style.width = '95%';
 } else {
-    console.log("User is on desktop browser");
+  document.getElementById('wins-div').style.height = '80%';
 }
 
-    if (!(/iPhone/.test(navigator.userAgent))) {
+    if (!(/iPhone/.test(navigator.userAgent)) && isMobile) {
   document.getElementById('newWord').style.display = 'block';
 }
 
@@ -338,7 +342,7 @@ Chart.register(ChartDataLabels);
         winChart.update();
       } else {
         winChart = new Chart(winDonutChartCtx, {
-          type: 'doughnut',
+          type: 'pie',
           data: winData,
           options: {
             plugins: {
