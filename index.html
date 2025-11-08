@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Wordle Results</title>
-    <link rel="shortcut icon" type="image/png" href="wr.png"> 
+<link rel="manifest" href="/NewWordle/manifest.json">
     <style>
       * {font-family: Arial, sans-serif;
         }
@@ -151,6 +151,12 @@
     <script src="previous.js"></script>
 
   <script>
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/NewWordle/service-worker.js')
+  .then(reg => console.log('Service Worker registered', reg))
+  .catch(err => console.error('Service Worker registration failed', err));
+}
 
 const userAgent = navigator.userAgent;
 
