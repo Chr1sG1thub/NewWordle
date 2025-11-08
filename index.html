@@ -358,7 +358,12 @@ Chart.register(ChartDataLabels);
           type: 'pie',
           data: winData,
           options: {
-            plugins: {
+    animation: {
+    animateScale: true,
+    duration: 1000,
+    easing: 'easeOutBounce'
+  },
+          plugins: {
     datalabels: {
       anchor: 'center',      // position of label relative to bar segment
       align: 'center',       // alignment of label inside segment
@@ -404,7 +409,12 @@ Chart.register(ChartDataLabels);
           type: 'pie',
           data: lossesData,
           options: {
-            //cutout: '10%',
+     animation: {
+    animateScale: true,
+    duration: 1000,
+    easing: 'easeOutBounce'
+  },
+         //cutout: '10%',
           plugins: {
   datalabels: {
       anchor: 'center',      // position of label relative to bar segment
