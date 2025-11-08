@@ -359,18 +359,12 @@ Chart.register(ChartDataLabels);
           data: winData,
           options: {
     animation: {
-     onComplete: function() {
-      const chart = this.chart;
-      chart.options.plugins.datalabels.display = true;
-      chart.update();
-    },
    animateScale: true,
     duration: 1000,
     easing: 'easeOutBounce'
   },
           plugins: {
     datalabels: {
-      display: false,
       anchor: 'center',      // position of label relative to bar segment
       align: 'center',       // alignment of label inside segment
   //    color: 'white',        // label color
