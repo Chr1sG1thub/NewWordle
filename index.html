@@ -745,7 +745,7 @@ function scrollToBottom() {
   
     ignoreScrollEvent = true;
   // Scroll to the very bottom
-  container2.scrollTop = container2.scrollHeight;
+  container2.scrollTop = container2.scrollHeight - container2.clientHeight;
       ignoreScrollEvent = false;
 
 }
