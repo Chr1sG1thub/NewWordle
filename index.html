@@ -213,6 +213,14 @@ Chart.register(ChartDataLabels);
       const response = await fetch('https://script.google.com/macros/s/AKfycbzaH1euvAcQ3j-xP0R6BBOpvvy4-b7AygK2jEp0MJEfcdgpanuyQ6-2Nl0f3fT9rLpF/exec?sheet=2025');
       const data = await response.json();
 
+  data.sort((a, b) => {
+    const [da, ma, ya] = a.TheDate.split('/').map(Number);
+    const [db, mb, yb] = b.TheDate.split('/').map(Number);
+    const dA = new Date(ya, ma - 1, da);
+    const dB = new Date(yb, mb - 1, db);
+    return dA - dB;          // use dB - dA for descending
+  });
+
       tableBody.innerHTML = '';
       let indx = 0;
         
