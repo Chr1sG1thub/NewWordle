@@ -814,7 +814,7 @@ loadData();
       const Julia = entryForm.julia.value;
       const Nick = entryForm.nick.value;
 
-      await fetch('https://sheetdb.io/api/v1/tlyuuspp4o2zw?sheet=This',
+      await fetch('https://sheetdb.io/api/v1/tlyuuspp4o2zw?sheet=This', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify([{ TheDate, TheWord, Chris, Julia, Nick }])
