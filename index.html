@@ -438,8 +438,11 @@ Chart.register(ChartDataLabels);
       },
        formatter: (value, ctx) => {
           const label = ctx.chart.data.labels[ctx.dataIndex];
+          if (value == 0) {
+          return ''
+        } else {
           return label + ': ' + value;
-         //  return value;
+        }
         }
       }, //datalabels
               legend: {
