@@ -298,10 +298,16 @@ Chart.register(ChartDataLabels);
       }); //data.forEach
       
 //      console.log (chrisCount, juliaCount, nickCount);
+
+      const minCount = Math.min(chrisCount, juliaCount, nickCount);
+      const chrisCrown = chrisCount == minCount ? "👑" : "";
+      const juliaCrown = juliaCount == minCount ? "👑" : "";
+      const nickCrown = nickCount == minCount ? "👑" : "";
+      
       
     const totalGuesses = document.getElementById('totalGuesses');
 
-    totalGuesses.innerHTML = `<div align=center><strong><span style="color: lightblue">Chris</span></strong> has made <strong><span style="color: lightblue">${chrisCount}</span></strong> guesses.<br/><br/><strong><span style="color: lightpink">Julia</span></strong> has made <strong><span style="color: lightpink">${juliaCount}</span></strong> guesses.<br/><br/><strong><span style="color: lightgreen">Nick</span></strong> has made <strong><span style="color: lightgreen">${nickCount}</span></strong> guesses.<br/><br/></div>`;
+    totalGuesses.innerHTML = `<div align=center><strong><span style="color: lightblue">Chris</span></strong> has made <strong><span style="color: lightblue">${chrisCount}</span></strong> guesses${chrisCrown}.<br/><br/><strong><span style="color: lightpink">Julia</span></strong> has made <strong><span style="color: lightpink">${juliaCount}</span></strong> guesses${juliaCrown}.<br/><br/><strong><span style="color: lightgreen">Nick</span></strong> has made <strong><span style="color: lightgreen">${nickCount}</span></strong> guesses${nickCrown}.<br/><br/></div>`;
       
       // const container = document.getElementById('scrollTable');
       
