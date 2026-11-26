@@ -42,113 +42,233 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
 
 
-  </head>
+  
+<style id="wordle-refresh">
+  :root {
+    color-scheme: light;
+    --ink: #202a35;
+    --muted: #687584;
+    --paper: #f5f7f4;
+    --card: #ffffff;
+    --line: #e5eae5;
+    --green: #6aaa64;
+    --yellow: #c9a83e;
+    --blue: #78a9c8;
+    --pink: #df9caf;
+    --shadow: 0 8px 24px rgba(35, 55, 45, .07);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 24px 16px 48px;
+    background: var(--paper); color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px; line-height: 1.5;
+  }
+  #everything { display: none; max-width: 1120px; margin: 0 auto; }
+  #nothing { max-width: 1120px; margin: 12vh auto; text-align: center; }
+  #nothing p { color: var(--green) !important; font-size: 22px !important; }
+  .app-header {
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
+    padding: 8px 4px 22px; flex-wrap:wrap;
+  }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .brand-mark {
+    width:54px; height:54px; border-radius:16px; display:grid; place-items:center;
+    background:#e8f1e4; color:#426f48; font-size:25px; font-weight:800;
+    box-shadow: inset 0 0 0 1px rgba(66,111,72,.08);
+  }
+  .brand h1 { margin:0; font-size:clamp(25px,4vw,34px); line-height:1.1; letter-spacing:-1.2px; }
+  .brand p { margin:5px 0 0; color:var(--muted); font-size:14px; }
+  .header-tag {
+    border:1px solid #dce6d9; border-radius:999px; padding:8px 13px;
+    color:#4d7650; background:#f0f6ed; font-size:13px; font-weight:700;
+  }
+  .panel {
+    background:var(--card); border:1px solid var(--line); border-radius:20px;
+    box-shadow:var(--shadow); padding:22px; margin:0 0 20px; min-width:0;
+  }
+  .panel-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:16px; }
+  .panel-heading h2 { margin:0; font-size:20px; letter-spacing:-.4px; }
+  .panel-heading p { margin:3px 0 0; color:var(--muted); font-size:13px; }
+  #newWord { display:block !important; }
+  #newWord .panel-heading { margin-bottom:18px; }
+  #entry-form { margin:0; }
+  .entry-grid {
+    display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; align-items:end;
+  }
+  .field { display:flex; flex-direction:column; gap:6px; min-width:0; }
+  .field label { font-size:12px !important; color:var(--muted); font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+  .field input {
+    width:100% !important; min-width:0; height:44px; padding:8px 11px;
+    border:1px solid #dce3dc; border-radius:10px; background:#fbfcfa;
+    color:var(--ink); font:inherit !important; font-size:16px !important;
+  }
+  .field input:focus { outline:3px solid rgba(106,170,100,.18); border-color:var(--green); }
+  .entry-actions { display:flex; justify-content:flex-end; margin-top:14px; }
+  #entry-form button {
+    border:0; border-radius:11px; padding:11px 20px; background:#4f8755; color:white;
+    font:inherit !important; font-size:15px !important; font-weight:750; cursor:pointer;
+    box-shadow:0 4px 10px rgba(79,135,85,.18);
+  }
+  #entry-form button:hover { background:#3f7446; }
+  .table-scroll { width:100%; overflow:auto; border:1px solid var(--line); border-radius:13px; }
+  .results-table {
+    width:100%; min-width:590px; border-collapse:separate; border-spacing:0;
+    font-size:14px !important; text-align:center;
+  }
+  .results-table thead th {
+    position:sticky; top:0; z-index:1; background:#f2f5f1;
+    color:#657267; font-size:11px !important; text-transform:uppercase; letter-spacing:.07em;
+    padding:12px 10px; border-bottom:1px solid var(--line);
+  }
+  .results-table tbody td {
+    padding:11px 10px; border-bottom:1px solid #edf0ec !important;
+    font-size:14px !important; color:var(--ink);
+  }
+  .results-table tbody tr:last-child td { border-bottom:0 !important; }
+  .results-table tbody tr:nth-child(even) td { background-color:#fafbf9; }
+  #scrollTable, #scrollTable2 {
+    height:420px !important; max-height:55vh; overflow:auto;
+    border:1px solid var(--line); border-radius:13px; width:100% !important;
+    background:white; margin:0 auto;
+  }
+  #scrollTable table, #scrollTable2 table { width:100%; min-width:590px; border-collapse:collapse; }
+  #table-body td, #table-body2 td { padding:11px 10px !important; font-size:14px !important; }
+  .dashboard-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+  .chart-panel { min-width:0; }
+  .chart-panel canvas { display:block; width:100% !important; max-width:440px; max-height:300px; margin:0 auto; }
+  #guesses-div canvas { max-width:700px; }
+  #totalGuesses { font-size:15px !important; line-height:1.8; }
+  #totalGuesses div { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+  #totalGuesses div br { display:none; }
+  #totalGuesses strong { font-weight:750; }
+  .player-chip {
+    display:inline-block; border-radius:8px; padding:3px 7px; background:#f4f6f3;
+  }
+  hr { display:none; }
+  @media (max-width:700px) {
+    body { padding:14px 10px 30px; }
+    .panel { padding:17px; border-radius:16px; }
+    .entry-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .entry-grid .field:first-child, .entry-grid .field:nth-child(2) { grid-column:span 1; }
+    .entry-grid .field:nth-child(3), .entry-grid .field:nth-child(4), .entry-grid .field:nth-child(5) { grid-column:span 1; }
+    .dashboard-grid { grid-template-columns:1fr; }
+    #totalGuesses div { grid-template-columns:1fr; gap:4px; }
+    .header-tag { display:none; }
+    #scrollTable, #scrollTable2 { height:360px !important; max-height:52vh; }
+  }
+</style>
+
+</head>
   
   <body>
-    
-    <div id="nothing" style="display: block">
-      <br/><p align=center style="font-size: 54px; color: blue;"><strong><i>Loading results. Please wait...</i></strong></p>   
-    </div>
-    
-    <div id="everything" style="display: none">
-      
-     <div id="newWord" style="display: none">
-        
-      <p align=center style="font-size: 54px; color: blue;"><strong><i>Add New Wordle Entry</i></strong></p>
+  <div id="nothing">
+    <p><strong>Loading your Wordle results…</strong></p>
+  </div>
 
-      <form id="entry-form">
- 
-      <div style="text-align: center;">
-      <label for="the-date" style="font-size: 48px;">Date:</label>
-      <input type="text" id="the-date" maxlength="10" style="font-size: 48px; width: 300px" name="thedate" required>&nbsp;
-
-      <label for="the-word" style="font-size: 48px;">Word:</label>
-      <input type="text" id="the-word" maxlength="5" style="font-size: 48px; width: 250px; text-transform:uppercase" name="theword" required><br/>
-
-      <label for="xchris" style="font-size: 48px;">Chris:</label>&nbsp;
-      <input type="number" maxlength="1" id="xchris" style="font-size: 48px; width: 80px;" name="chris" required>
-      <label for="xjulia" style="font-size: 48px;">Julia:</label>&nbsp;
-      <input type="number" maxlength="1" id="xjulia" style="font-size: 48px; width: 80px;" name="julia" required>
-      <label for="xnick" style="font-size: 48px;">Nick:</label>
-      <input type="number" maxlength="1" id="xnick" style="font-size: 48px; width: 80px;" name="nick" required>
-      <br><br>
-        <button type="submit" style="font-size: 48px">Submit</button>
+  <main id="everything">
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-mark">W</div>
+        <div>
+          <h1>Wordle League</h1>
+          <p>Three players. One daily word. Friendly competition.</p>
+        </div>
       </div>
+      <div class="header-tag">DAILY WORDLE SCOREBOARD</div>
+    </header>
 
-    </form>
-    <hr>
-      <hr>
-      </div> <!-- id="newWord" -->
+    <section id="newWord" class="panel">
+      <div class="panel-heading">
+        <div>
+          <h2>Add a result</h2>
+          <p>Record today's word and everyone's score.</p>
+        </div>
+      </div>
+      <form id="entry-form">
+        <div class="entry-grid">
+          <div class="field">
+            <label for="the-date">Date</label>
+            <input type="text" id="the-date" maxlength="10" name="thedate" required>
+          </div>
+          <div class="field">
+            <label for="the-word">Word</label>
+            <input type="text" id="the-word" maxlength="5" name="theword" required>
+          </div>
+          <div class="field">
+            <label for="xchris">Chris</label>
+            <input type="number" min="1" max="7" id="xchris" name="chris" required>
+          </div>
+          <div class="field">
+            <label for="xjulia">Julia</label>
+            <input type="number" min="1" max="7" id="xjulia" name="julia" required>
+          </div>
+          <div class="field">
+            <label for="xnick">Nick</label>
+            <input type="number" min="1" max="7" id="xnick" name="nick" required>
+          </div>
+        </div>
+        <div class="entry-actions">
+          <button type="submit">Save result</button>
+        </div>
+      </form>
+    </section>
 
-      <br/><p align=center style="font-size: 54px; color: blue;"><strong><i>This Year's Results</i></strong></p>
-      <p align=center style="font-size: 30px;"><i>Scroll this panel to view more rows</i></p>
-     
-      <table style="font-size: 48px; padding: 6px" align=center>
-        <thead><tr><th align=center width=300px style="border: none">Date</th><th align=left width=150px style="border: none">Word</th><th align=center width=120px style="border: none">Chris</th><th align=center width=120px style="border: none">Julia</th><th align=center width=120px style="border: none">Nick</th></tr></thead>
-      </table>
-      
-       <div class="table-container" id="scrollTable">
+    <section class="panel">
+      <div class="panel-heading">
+        <div>
+          <h2>This year's results</h2>
+          <p>Every game, in date order.</p>
+        </div>
+      </div>
+      <div class="table-scroll" id="scrollTable">
+        <table class="results-table">
+          <thead><tr>
+            <th>Date</th><th>Word</th><th>Chris</th><th>Julia</th><th>Nick</th>
+          </tr></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+        <div id="spacer" style="height:0"></div>
+      </div>
+    </section>
 
-      <table style="font-size: 48px; padding: 6px" align=center>
-        <tbody id="table-body"></tbody>
-      </table>
-     <div id="spacer" style="height: 0;"></div>
-   </div>
-
-      <hr>
-      <hr>
-
-    <p align=center style="font-size: 54px; color: blue;"><strong><i>Outright Wins</i></strong></p>
-    <div id = "wins-div" style="text-align: center;">
-<canvas id="wins-donut-chart"  style="display: inline-block;"></canvas>
+    <div class="dashboard-grid">
+      <section class="panel chart-panel">
+        <div class="panel-heading"><div><h2>Outright wins</h2><p>Who has won the most games outright?</p></div></div>
+        <div id="wins-div"><canvas id="wins-donut-chart"></canvas></div>
+      </section>
+      <section class="panel chart-panel">
+        <div class="panel-heading"><div><h2>Outright losses</h2><p>Who has had the toughest games?</p></div></div>
+        <div id="losses-div"><canvas id="losses-donut-chart"></canvas></div>
+      </section>
     </div>
-      <hr>
-    <hr>
-    <p align=center style="font-size: 54px; color: blue;"><strong><i>Outright Losses</i></strong></p>
-    <div id = "losses-div" style="text-align: center;">
-    <canvas id="losses-donut-chart"  style="display: inline-block;"></canvas>
-    </div>
-      <hr>
-    <hr>
-      
-    <p align=center style="font-size: 54px; color: blue;"><strong><i>Guess Distribution</i></strong></p>
-    <div id = "guesses-div" style="text-align: center;">
-    <canvas id="guesses-bar-chart" style="display: inline-block;"></canvas>
-    </div>
-       <hr>
-    <hr>
 
-    <p align=center style="font-size: 54px; color: blue;"><strong><i>Total Guesses</i></strong></p>
+    <section class="panel">
+      <div class="panel-heading"><div><h2>Guess distribution</h2><p>How many times each player finished in each number of guesses.</p></div></div>
+      <div id="guesses-div"><canvas id="guesses-bar-chart"></canvas></div>
+    </section>
 
-   <table style="font-size: 48px; padding: 6px" align=center width=80%>
-<tr><td id="totalGuesses">
-    </td>
-  </tr>
-</table>
-        <hr>
-   <hr>
-    
-      <br/><p align=center style="font-size: 54px; color: blue;"><strong><i>Previous Results</i></strong></p>
-      <p align=center style="font-size: 30px;"><i>Scroll this panel to view more rows</i></p>
-     
-         <table style="font-size: 48px; padding: 6px" align=center>
-        <thead><tr><th align=center width=300px style="border: none">Date</th><th align=left width=150px style="border: none">Word</th>      <th width=120px align='center' style='border: none;'>Chris</th><th width=120px align='center' style='border: none;'>Julia</th><th width=120px align='center' style='border: none;'>Nick</th>
-</tr></thead>
-      </table>
-      
-    <div class="table-container" id="scrollTable2">
+    <section class="panel">
+      <div class="panel-heading"><div><h2>Total guesses</h2><p>Lowest overall total gets the bragging rights.</p></div></div>
+      <div id="totalGuesses"></div>
+    </section>
 
-      <table style="font-size: 48px; padding: 6px" align=center>
-        <tbody id="table-body2"></tbody>
-      </table>
-     <div id="spacer2" style="height: 0;"></div>
-   </div>
-      <hr>
-      <hr>
+    <section class="panel">
+      <div class="panel-heading"><div><h2>Previous results</h2><p>Your earlier games, kept for posterity.</p></div></div>
+      <div class="table-scroll" id="scrollTable2">
+        <table class="results-table">
+          <thead><tr>
+            <th>Date</th><th>Word</th><th>Chris</th><th>Julia</th><th>Nick</th>
+          </tr></thead>
+          <tbody id="table-body2"></tbody>
+        </table>
+        <div id="spacer2" style="height:0"></div>
+      </div>
+    </section>
+  </main>
+</body>
 
-  </div> <!-- id="everything" -->
-    
-    <script src="previous.js"></script>
+<script src="previous.js"></script>
 
   <script>
 
